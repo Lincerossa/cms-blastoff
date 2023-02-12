@@ -2,6 +2,7 @@ import { FC} from 'react'
 import fs from 'fs'
 import ReactMarkdown from 'react-markdown'
 import matter from 'gray-matter'
+import { PostHero } from '@/components'
 
 type BlogProps = {
   frontmatter: {
@@ -14,12 +15,10 @@ type BlogProps = {
   markdown: string
 }
 const Blog:FC<BlogProps> = ({ frontmatter, markdown}) => {
-  const {title, date, tags } = frontmatter
+  const {title, date, tags, thumbnail } = frontmatter
   return (
     <div>
-      <h1>{title}</h1>
-      <h3>{date}</h3>
-      <ol>{tags.map(tag => <li key={tag}>{tag}</li>)}</ol>
+      <PostHero supertitle={date} title={title} subtitle={'subtitle'} media={{url:`${thumbnail.replace('/public','')}`}}/>
       <ReactMarkdown>
         {markdown}
       </ReactMarkdown>

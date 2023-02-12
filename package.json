@@ -23,6 +23,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-markdown": "^8.0.5",
+    "styled-components": "^5.3.6",
     "typescript": "4.9.5"
   },
   "config": {
@@ -31,6 +32,7 @@
     }
   },
   "devDependencies": {
-    "@types/mdx": "^2.0.3"
+    "@types/mdx": "^2.0.3",
+    "@types/styled-components": "^5.1.26"
   }
 }
