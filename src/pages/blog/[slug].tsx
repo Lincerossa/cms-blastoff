@@ -9,17 +9,17 @@ type BlogProps = {
     title: string
     date: string
     thumbnail: string
-    rating: number
+    tags: string[]
   }
   markdown: string
 }
 const Blog:FC<BlogProps> = ({ frontmatter, markdown}) => {
-  const {title, date, rating } = frontmatter
+  const {title, date, tags } = frontmatter
   return (
     <div>
       <h1>{title}</h1>
       <h3>{date}</h3>
-      <p>{rating}</p>
+      <ol>{tags.map(tag => <li key={tag}>{tag}</li>)}</ol>
       <ReactMarkdown>
         {markdown}
       </ReactMarkdown>
@@ -29,13 +29,10 @@ const Blog:FC<BlogProps> = ({ frontmatter, markdown}) => {
 export default Blog
 
 export async function getStaticProps({ params: { slug } }: {params: {slug: string}}) {
-  const fileContent = matter(fs.readFileSync(`./public/posts/blog/${slug}.md`, 'utf8'))
-
-  const {date, ...frontmatter} = fileContent.data
-  const markdown = fileContent.content
+  const { data, content } = matter(fs.readFileSync(`./public/posts/blog/${slug}.md`, 'utf8'))
 
   return {
-    props: { frontmatter: {...frontmatter, date: `${date}`}, markdown }
+    props: { frontmatter: {...data, date: `${data.date}`}, markdown: content }
   }
 }
 
