@@ -3,9 +3,8 @@ import { attributes, react as HomeContent } from '../../public/_posts/blog/conte
 
 const Blog = () => {
 
-    let { title, thumbnail } = attributes;
+    const { title, thumbnail } = attributes
 
-    console.log({thumbnail})
     return (
       <>
         <Head>
