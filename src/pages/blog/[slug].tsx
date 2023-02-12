@@ -2,6 +2,7 @@ import { FC} from 'react'
 import fs from 'fs'
 import ReactMarkdown from 'react-markdown'
 import matter from 'gray-matter'
+import { PostHero } from '@/components'
 
 type BlogProps = {
   frontmatter: {
@@ -9,17 +10,15 @@ type BlogProps = {
     title: string
     date: string
     thumbnail: string
-    rating: number
+    tags: string[]
   }
   markdown: string
 }
 const Blog:FC<BlogProps> = ({ frontmatter, markdown}) => {
-  const {title, date, rating } = frontmatter
+  const {title, date, tags, thumbnail } = frontmatter
   return (
     <div>
-      <h1>{title}</h1>
-      <h3>{date}</h3>
-      <p>{rating}</p>
+      <PostHero supertitle={date} title={title} subtitle={'subtitle'} media={{url:`${thumbnail.replace('/public','')}`}}/>
       <ReactMarkdown>
         {markdown}
       </ReactMarkdown>
@@ -29,13 +28,10 @@ const Blog:FC<BlogProps> = ({ frontmatter, markdown}) => {
 export default Blog
 
 export async function getStaticProps({ params: { slug } }: {params: {slug: string}}) {
-  const fileContent = matter(fs.readFileSync(`./public/posts/blog/${slug}.md`, 'utf8'))
-
-  const {date, ...frontmatter} = fileContent.data
-  const markdown = fileContent.content
+  const { data, content } = matter(fs.readFileSync(`./public/posts/blog/${slug}.md`, 'utf8'))
 
   return {
-    props: { frontmatter: {...frontmatter, date: `${date}`}, markdown }
+    props: { frontmatter: {...data, date: `${data.date}`}, markdown: content }
   }
 }
 
