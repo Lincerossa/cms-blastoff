@@ -26,6 +26,7 @@ const Blog:FC<BlogProps> = ({ frontmatter, markdown}) => {
     </div>
   )
 }
+export default Blog
 
 export async function getStaticProps({ params: { slug } }: {params: {slug: string}}) {
   const fileContent = matter(fs.readFileSync(`./public/posts/blog/${slug}.md`, 'utf8'))
