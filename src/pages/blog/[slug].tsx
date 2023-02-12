@@ -1,6 +1,6 @@
 import Head from "next/head"
 import Image from 'next/image'
-import { attributes, react as HomeContent } from '../../public/_posts/blog/content.md'
+import { attributes, react as HomeContent } from '../../../public/_posts/blog/content.md'
 
 const Blog = () => {
 
