@@ -13,17 +13,19 @@ const ListOfCards: FC<ListOfCardsProps> = ({ items }) => (
     {items.map(({
       slug, image, supertitle, title, tags, subtitle,
     }) => (
-      <Link key={slug} href="/[...dynamic]" as={`/${slug}`}>
-        <S.ListItem>
-          <Card
-            image={image}
-            supertitle={supertitle}
-            title={title}
-            subtitle={subtitle}
-            tags={tags}
-            layout='auto'
-          />
-        </S.ListItem>
+      <Link legacyBehavior key={slug} href="/[...dynamic]" as={`/${slug}`}>
+        <a>
+          <S.ListItem>
+            <Card
+              image={image}
+              supertitle={supertitle}
+              title={title}
+              subtitle={subtitle}
+              tags={tags}
+              layout='auto'
+            />
+          </S.ListItem>
+        </a>
       </Link>
     ))}
   </List>

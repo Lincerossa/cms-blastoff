@@ -11,6 +11,7 @@ const MarkdownComponents: object = {
     if (node.children[0].tagName === "img") {
       const image = node.children[0]
       const metastring = image.properties.alt
+      const alt = metastring?.replace(/ *\{[^)]*\} */g, "")
       const metaWidth = metastring.match(/{([^}]+)x/)
       const metaHeight = metastring.match(/x([^}]+)}/)
       const width = metaWidth ? metaWidth[1] : "768"
@@ -18,7 +19,7 @@ const MarkdownComponents: object = {
       return (
         <Padder size='small'>
         <Wrapper>
-          <Image image={{src: image.properties.src.replace('/public',''), alt: metastring, height, width}} />
+          <Image image={{src: image.properties.src.replace('/public',''), alt, height, width}} />
         </Wrapper>
         </Padder>
       )

@@ -26,7 +26,7 @@ const BlogPage:FC<BlogProps> = ({ frontmatter, markdown}) => {
         supertitle={date}
         title={title}
         subtitle={subtitle}
-        media={{url:`${thumbnail.replace('/public','')}`}}
+        media={{url:thumbnail}}
       />
       <Background color='white' background={theme.colors.thirdary}>
         <Wrapper>
