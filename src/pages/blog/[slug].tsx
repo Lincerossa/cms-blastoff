@@ -1,8 +1,8 @@
-import { FC} from 'react'
+import { FC } from 'react'
 import fs from 'fs'
-import ReactMarkdown from 'react-markdown'
+
 import matter from 'gray-matter'
-import { Background, PostHero, Padder, Wrapper } from '@/components'
+import { Background, PostHero, Padder, Wrapper, Markdown } from '@/components'
 import getFormattedDate from '@/helpers/utils/getFormattedDate'
 import theme from '@/helpers/style/theme'
 
@@ -16,6 +16,8 @@ type BlogProps = {
   }
   markdown: string
 }
+
+
 const BlogPage:FC<BlogProps> = ({ frontmatter, markdown}) => {
   const {title, date, subtitle, tags, thumbnail } = frontmatter
   return (
@@ -29,9 +31,9 @@ const BlogPage:FC<BlogProps> = ({ frontmatter, markdown}) => {
       <Background color='white' background={theme.colors.thirdary}>
         <Wrapper>
           <Padder size='large'>
-              <ReactMarkdown>
-                {markdown}
-              </ReactMarkdown>
+            <Markdown>
+              {markdown}
+            </Markdown>
           </Padder>
         </Wrapper>
       </Background>

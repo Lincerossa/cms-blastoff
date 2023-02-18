@@ -9,8 +9,6 @@ type HomePageProps = {
   listOfCards: ListOfCardsProps
 }
 const HomePage:FC<HomePageProps> = ({ listOfCards }) => {
-
-  console.log('fff', listOfCards)
   return (
     <>
       <ListOfCards {...listOfCards} />
