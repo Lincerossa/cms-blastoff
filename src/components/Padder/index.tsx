@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
 import * as S from './styles'
-import { TPadderProps } from './types'
+import { PadderProps } from './types'
 
-const Padder: FC<TPadderProps> = ({ size, children }) => (
+const Padder: FC<PadderProps> = ({ size, children }) => (
   <S.Padder size={size}>{children}</S.Padder>
 )
 

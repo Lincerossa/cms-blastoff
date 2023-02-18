@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-import { TListProps } from './types'
+import { ListProps } from './types'
 
-type ListProps = Pick<TListProps, 'columns'>
+type ListStyle = Pick<ListProps, 'columns'>
 
-export const List = styled.div<ListProps>`
+export const List = styled.div<ListStyle>`
   width: 100%;
   display: grid;
   grid-gap: 2rem;

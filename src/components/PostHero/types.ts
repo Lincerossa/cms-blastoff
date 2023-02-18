@@ -1,4 +1,4 @@
-export type TPostHeroProps = {
+export type PosHeroProps = {
   text?: string
   media?: { url: string }
   supertitle: string

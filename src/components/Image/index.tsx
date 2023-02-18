@@ -1,13 +1,15 @@
 import React, { FC } from 'react'
-import * as S from './styles'
-import { TImageProps } from './types'
+import Image from 'next/image'
 
-const MyImage: FC<TImageProps> = ({ image, hasShadow }) => (
+import * as S from './styles'
+import { ImageProps } from './types'
+
+const CustomImage: FC<ImageProps> = ({ image, hasShadow }) => (
   <S.ImageWrapper>
-    <img src={image.src} alt={image.alt} />
+    <Image src={image.src} alt={image.alt} />
     {hasShadow && <S.Shadow />}
     {image?.description && <S.Description>{image.description}</S.Description>}
   </S.ImageWrapper>
 )
 
-export default MyImage
+export default CustomImage

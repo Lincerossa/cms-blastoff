@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
 import * as S from './styles'
 import Wrapper from '../Wrapper'
-import { TPostHeroProps } from './types'
+import { PosHeroProps } from './types'
 
-const PostHero: FC<TPostHeroProps> = ({
+const PostHero: FC<PosHeroProps> = ({
   media, supertitle, title, subtitle,
 }) => (
   <S.MediaWrapper>

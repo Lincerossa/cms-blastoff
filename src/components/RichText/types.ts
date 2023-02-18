@@ -1,6 +1,5 @@
-import { FC } from 'react'
+import { PropsWithChildren} from 'react'
 
-export type TRichTextProps = {
+export type RichTextProps = PropsWithChildren<{
   text?: string
-  children: JSX.Element
-}
+}>
