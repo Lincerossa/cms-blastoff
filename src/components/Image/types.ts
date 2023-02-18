@@ -1,8 +1,5 @@
-export type TImageProps = {
+import { Image } from '../../helpers/types'
+export type ImageProps = {
   hasShadow?: boolean
-  image: {
-    src: string
-    description?: string
-    alt?: string
-  }
+  image: Image
 }
