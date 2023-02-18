@@ -6,30 +6,26 @@ import Card from '../Card'
 import List from '../List'
 import * as S from './styles'
 
-import { TListOfCardsProps } from './types'
+import { ListOfCardsProps } from './types'
 
-const ListOfCards: FC<TListOfCardsProps> = ({ items }) => (
+const ListOfCards: FC<ListOfCardsProps> = ({ items }) => (
   <List columns={3}>
-    <>
     {items.map(({
       slug, image, supertitle, title, tags, subtitle,
     }) => (
       <Link key={slug} href="/[...dynamic]" as={`/${slug}`}>
-        <a>
-          <S.ListItem>
-            <Card
-              image={image}
-              supertitle={supertitle}
-              title={title}
-              subtitle={subtitle}
-              tags={tags}
-              layout='auto'
-            />
-          </S.ListItem>
-        </a>
+        <S.ListItem>
+          <Card
+            image={image}
+            supertitle={supertitle}
+            title={title}
+            subtitle={subtitle}
+            tags={tags}
+            layout='auto'
+          />
+        </S.ListItem>
       </Link>
     ))}
-    </>
   </List>
 )
 

@@ -1,4 +1,5 @@
-export type TListProps = {
+import { PropsWithChildren } from 'react'
+
+export type ListProps = PropsWithChildren<{
   columns?: number
-  children: JSX.Element
-}
+}>

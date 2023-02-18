@@ -1,9 +1,7 @@
-export type TCardProps = {
-  image: {
-    src: string
-    description?: string
-    alt?: string
-  }
+import { Image } from '../../helpers/types'
+
+export type CardProps = {
+  image: Image
   supertitle: string
   title: string
   tags: string[]

@@ -1,9 +1,5 @@
-import { TCardProps } from '../Card/types'
+import { CardProps } from '../Card/types'
 
-interface TEnhancedCardProps extends TCardProps {
-  slug: string
-}
-
-export type TListOfCardsProps = {
-  items: TEnhancedCardProps[]
+export type ListOfCardsProps = {
+  items: Array<CardProps & {slug: string}>
 }

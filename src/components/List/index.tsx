@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
 import * as S from './styles'
-import { TListProps } from './types'
+import { ListProps } from './types'
 
-const List: FC<TListProps> = ({ columns = 1, children }) => (
+const List: FC<ListProps> = ({ columns = 1, children }) => (
   <S.List columns={columns}>
     {React.Children.map(children, (child) => <S.ListItem>{child}</S.ListItem>)}
   </S.List>

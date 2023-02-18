@@ -1,5 +1,6 @@
-export type TWrapperProps = {
+import { PropsWithChildren} from 'react'
+
+export type WrapperProps = PropsWithChildren<{
   hasPadding?: boolean
-  children: JSX.Element
   size?: 'small' | 'regular' | 'big' | 'large'
-}
+}>

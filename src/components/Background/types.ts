@@ -1,5 +1,6 @@
-export type TBackgroundProps = {
+import { PropsWithChildren } from 'react'
+
+export type BackgroundProps = PropsWithChildren<{
   background: string
   color?: string
-  children: JSX.Element
-}
+}>

@@ -1,9 +1,7 @@
-export type THeroProps = {
-  image: {
-    src: string
-    description?: string
-    alt?: string
-  }
+import { Image } from '../../helpers/types'
+
+export type HeroProps = {
+  image: Image
   maintitle: string
   supertitle: string
   title: string

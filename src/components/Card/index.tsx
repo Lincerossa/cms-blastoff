@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
 import Image from '../Image'
 import * as S from './styles'
-import { TCardProps } from './types'
+import { CardProps } from './types'
 
-const Card: FC<TCardProps> = ({
+const Card: FC<CardProps> = ({
   image, supertitle, title, tags, subtitle, layout,
 }) => (
   <S.Card>

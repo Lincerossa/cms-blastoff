@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-import { TCardProps } from './types'
+import { CardProps } from './types'
 
-type TImageWrapper = Pick<TCardProps, 'layout'>
+type TImageWrapper = Pick<CardProps, 'layout'>
 
 export const Card = styled.div`
   background-color: white;
