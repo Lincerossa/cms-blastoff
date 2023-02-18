@@ -7,18 +7,22 @@ import getFormattedDate from '@/helpers/utils/getFormattedDate'
 import theme from '@/helpers/style/theme'
 
 type BlogProps = {
-  frontmatter: {
-    title: string
-    subtitle: string
-    date: string
-    thumbnail: string
-    tags: string[]
+  data: {
+    frontmatter: {
+      title: string
+      subtitle: string
+      date: string
+      slug: string
+      thumbnail: string
+      tags?: Array<{name: string}>
+    }
+    markdown: string
   }
-  markdown: string
 }
 
 
-const BlogPage:FC<BlogProps> = ({ frontmatter, markdown}) => {
+const BlogPage:FC<BlogProps> = ({ data }) => {
+  const { frontmatter, markdown } = data 
   const {title, date, subtitle, tags, thumbnail } = frontmatter
   return (
     <>
@@ -45,10 +49,13 @@ export default BlogPage
 export async function getStaticProps({ params: { slug } }: {params: {slug: string}}) {
   const { data, content } = matter(fs.readFileSync(`./public/posts/blog/${slug}.md`, 'utf8'))
 
-
-
   return {
-    props: { frontmatter: {...data, date: getFormattedDate(new Date(data.date))}, markdown: content }
+    props: {
+      data: {
+        frontmatter: {...data, slug, date: getFormattedDate(new Date(data.date))},
+        markdown: content
+      }
+    }
   }
 }
 
