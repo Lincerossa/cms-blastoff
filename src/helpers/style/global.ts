@@ -7,6 +7,7 @@ export default createGlobalStyle`
     font-size: 1rem;
     color: black;
     margin: 0;
+    pointer:
   }
   strong {
     font-weight: 600;
@@ -52,6 +53,7 @@ export default createGlobalStyle`
   *:after {
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
+    cursor: none;
   }
   a{
     color: ${theme.colors.primary} !important;
