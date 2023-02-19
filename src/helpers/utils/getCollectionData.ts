@@ -1,6 +1,5 @@
 import fs from 'fs'
 import matter from 'gray-matter'
-import getFormattedDate from './getFormattedDate'
 import { Post } from '../types'
 
 type GetCollectionData = (e: {collection: 'blog' | 'project'}) => Array<Post>
@@ -15,7 +14,7 @@ const getCollectionData: GetCollectionData = ({collection}) => {
       tags: data.tags ?? [],
       thumbnail: data.thumbnail ?? '',
       slug: fileName.replace('.md', ''),
-      date: getFormattedDate(new Date(data?.date)) ?? '',
+      date: `${new Date(data?.date) ?? ''}`,
       content: content ?? ''
     }
   })

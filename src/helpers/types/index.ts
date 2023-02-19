@@ -10,7 +10,7 @@ export type Post = {
   thumbnail: string
   subtitle:string
   tags?: Array<{name: string}>
-  slug: string,
-  date: string,
+  slug: string
+  date: string
   content: string
 }
