@@ -25,8 +25,8 @@ const HomeContainer: FC<HomeContainerProps> = ({data}) => {
 
   return (
     <>
-      <MainLabel text="cms-bastoff" />
-      <Background background={theme.colors.thirdary} color='white'>
+      <MainLabel text="Cms Blastoff" />
+      <Background background={theme.colors.primary} color='white'>
         <Wrapper size="large">
           <Padder size="large">
             <RichText>
