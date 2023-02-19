@@ -4,11 +4,9 @@ import theme from '../helpers/style/theme'
 import Head from 'next/head'
 import { ThemeProvider } from 'styled-components'
 import { SETTINGS } from '@/helpers/const'
-import { Pointer } from '@/components'
+import { Layout } from '@/components'
 
 export default function App({ Component, pageProps }: AppProps) {
-
-
   const seo = pageProps?.seo || SETTINGS.SEO
   return <>
     <Head>
@@ -24,8 +22,9 @@ export default function App({ Component, pageProps }: AppProps) {
     </Head>
     <GlobalStyle />
     <ThemeProvider theme={theme}>
-      <Pointer />
-      <Component {...pageProps} />
+      <Layout routes={SETTINGS.ROUTES}>
+        <Component {...pageProps} />
+      </Layout>
     </ThemeProvider>
   </>
 }

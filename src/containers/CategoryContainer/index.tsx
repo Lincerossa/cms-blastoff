@@ -4,11 +4,12 @@ import { ListOfCards, Background, Padder, Wrapper, MainLabel, RichText } from '@
 import theme from '@/helpers/style/theme'
 import { DATA } from '@/helpers/const'
 
-type HomeContainerProps = {
+type CategoryContainerProps = {
   data: Post[]
+  category: 'blog'
 }
 
-const HomeContainer: FC<HomeContainerProps> = ({data}) => {
+const CategoryContainer: FC<CategoryContainerProps> = ({data, category}) => {
   const items = data.map(({thumbnail, date, title, tags, subtitle, slug}) => ({
     image: {
       alt: '',
@@ -20,26 +21,16 @@ const HomeContainer: FC<HomeContainerProps> = ({data}) => {
     title,
     tags: tags?.map(tag => tag?.name) ?? [],
     subtitle,
-    slug: `blog/${slug.replace('.md', '')}`
+    slug: `${category}/${slug.replace('.md', '')}`
   }))
 
   return (
     <>
-      <MainLabel text="CMS BLASTOFF" />
-      <Background background={theme.colors.primary} color='white'>
-        <Wrapper size="large">
-          <Padder size="large">
-            <RichText>
-              <h1>Intro</h1>
-              <p>{DATA.intro}</p>
-            </RichText>
-          </Padder>
-        </Wrapper>
-      </Background>
+      <MainLabel text={category.toUpperCase()} />
       <Background background={theme.colors.thirdary}>
         <Wrapper size="large">
           <Padder size="large">
-            <RichText><h1>Full list of posts</h1></RichText>
+            <RichText><h1>{category.toUpperCase()}</h1></RichText>
             <ListOfCards items={items} />
           </Padder>
         </Wrapper>
@@ -49,4 +40,4 @@ const HomeContainer: FC<HomeContainerProps> = ({data}) => {
 }
 
 
-export default HomeContainer
+export default CategoryContainer

@@ -3,11 +3,11 @@ import { Background, PostHero, Padder, Wrapper, Markdown } from '@/components'
 import theme from '@/helpers/style/theme'
 import { Post } from '@/helpers/types'
 
-type BlogContainerProps = {
+type PostContainerProps = {
   data: Post
 }
 
-const BlogContainer: FC<BlogContainerProps> = ({data}) => {
+const PostContainer: FC<PostContainerProps> = ({data}) => {
   const { title, date, subtitle, thumbnail, content } = data
   return (
     <>
@@ -18,7 +18,7 @@ const BlogContainer: FC<BlogContainerProps> = ({data}) => {
         media={{url: thumbnail.replace('/public','')}}
       />
       <Background color='white' background={theme.colors.thirdary}>
-        <Wrapper>
+        <Wrapper size='large'>
           <Padder size='large'>
             <Markdown>
               {content}
@@ -30,4 +30,4 @@ const BlogContainer: FC<BlogContainerProps> = ({data}) => {
   )
 }
 
-export default BlogContainer
+export default PostContainer

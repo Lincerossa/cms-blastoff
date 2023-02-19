@@ -1,16 +1,16 @@
 import { FC } from 'react'
 import getCollectionData from '@/helpers/utils/getCollectionData'
 import { Post } from '@/helpers/types'
-import { HomeContainer } from '@/containers'
+import { CategoryContainer } from '@/containers'
 
-type HomePageProps = {
+type BlogPageProps = {
   data: Post[]
 }
-const HomePage:FC<HomePageProps> = ({ data }) => {
-  return <HomeContainer data={data} />
+const BlogPage:FC<BlogPageProps> = ({ data }) => {
+  return <CategoryContainer category='blog' data={data} />
 }
   
-export default HomePage
+export default BlogPage
 
 export async function getStaticProps() {
   return {

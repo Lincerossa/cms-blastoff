@@ -27,7 +27,7 @@ export default createGlobalStyle`
   h1 {
     font-size: 2rem;
     @media (min-width: 768px){
-      font-size: 3rem;
+      font-size: 3.5rem;
     }
   }
   h2 {

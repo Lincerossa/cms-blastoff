@@ -9,7 +9,6 @@ export const Glitch = styled.div<{text: string}>`
   left: 50%;
   transform: translate(-50%, -50%);
   margin: 0;
-  cursor: pointer;
   text-decoration: none;
   color: #fff;
   &:before,
