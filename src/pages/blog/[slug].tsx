@@ -1,29 +1,17 @@
 import { FC } from 'react'
 import fs from 'fs'
-
-import matter from 'gray-matter'
 import { Background, PostHero, Padder, Wrapper, Markdown } from '@/components'
-import getFormattedDate from '@/helpers/utils/getFormattedDate'
 import theme from '@/helpers/style/theme'
+import getPostData from '@/helpers/utils/getPostData'
+import { Post } from '@/helpers/types'
 
 type BlogProps = {
-  data: {
-    frontmatter: {
-      title: string
-      subtitle: string
-      date: string
-      slug: string
-      thumbnail: string
-      tags?: Array<{name: string}>
-    }
-    markdown: string
-  }
+  data: Post
 }
 
-
 const BlogPage:FC<BlogProps> = ({ data }) => {
-  const { frontmatter, markdown } = data 
-  const {title, date, subtitle, tags, thumbnail } = frontmatter
+  const { title, date, subtitle, thumbnail, content } = data 
+
   return (
     <>
       <PostHero
@@ -36,7 +24,7 @@ const BlogPage:FC<BlogProps> = ({ data }) => {
         <Wrapper>
           <Padder size='large'>
             <Markdown>
-              {markdown}
+              {content}
             </Markdown>
           </Padder>
         </Wrapper>
@@ -47,14 +35,9 @@ const BlogPage:FC<BlogProps> = ({ data }) => {
 export default BlogPage
 
 export async function getStaticProps({ params: { slug } }: {params: {slug: string}}) {
-  const { data, content } = matter(fs.readFileSync(`./public/posts/blog/${slug}.md`, 'utf8'))
-
   return {
     props: {
-      data: {
-        frontmatter: {...data, slug, date: getFormattedDate(new Date(data.date))},
-        markdown: content
-      }
+      data: getPostData({collection: 'blog', slug})
     }
   }
 }
