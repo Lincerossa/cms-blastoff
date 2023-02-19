@@ -1,37 +1,17 @@
 import { FC } from 'react'
 import fs from 'fs'
-import { Background, PostHero, Padder, Wrapper, Markdown } from '@/components'
-import theme from '@/helpers/style/theme'
 import getPostData from '@/helpers/utils/getPostData'
 import { Post } from '@/helpers/types'
+import { BlogContainer } from '@/containers'
 
-type BlogProps = {
+type BlogPageProps = {
   data: Post
 }
 
-const BlogPage:FC<BlogProps> = ({ data }) => {
-  const { title, date, subtitle, thumbnail, content } = data 
-
-  return (
-    <>
-      <PostHero
-        supertitle={date}
-        title={title}
-        subtitle={subtitle}
-        media={{url:thumbnail}}
-      />
-      <Background color='white' background={theme.colors.thirdary}>
-        <Wrapper>
-          <Padder size='large'>
-            <Markdown>
-              {content}
-            </Markdown>
-          </Padder>
-        </Wrapper>
-      </Background>
-    </>
-  )
+const BlogPage:FC<BlogPageProps> = ({ data }) => {
+  return <BlogContainer data={data} />
 }
+
 export default BlogPage
 
 export async function getStaticProps({ params: { slug } }: {params: {slug: string}}) {
