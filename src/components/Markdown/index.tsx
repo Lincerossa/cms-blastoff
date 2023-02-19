@@ -19,7 +19,7 @@ const MarkdownComponents: object = {
       return (
         <Padder size='small'>
         <Wrapper>
-          <Image image={{src: image.properties.src.replace('/public',''), alt, height, width}} />
+          <Image image={{src: image.properties.src, alt, height, width}} />
         </Wrapper>
         </Padder>
       )

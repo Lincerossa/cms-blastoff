@@ -7,7 +7,7 @@ const PostHero: FC<PosHeroProps> = ({
   media, supertitle, title, subtitle,
 }) => (
   <S.MediaWrapper>
-    <S.Media src={media?.url.replace('/public','')} />
+    <S.Media src={media.url} />
     <Wrapper>
       <S.MediaHeader>
         <S.Supertitle>{supertitle}</S.Supertitle>

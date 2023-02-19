@@ -15,7 +15,7 @@ const BlogContainer: FC<BlogContainerProps> = ({data}) => {
         supertitle={date}
         title={title}
         subtitle={subtitle}
-        media={{url:thumbnail}}
+        media={{url: thumbnail.replace('/public','')}}
       />
       <Background color='white' background={theme.colors.thirdary}>
         <Wrapper>
