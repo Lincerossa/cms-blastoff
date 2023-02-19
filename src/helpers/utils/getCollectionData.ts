@@ -1,16 +1,9 @@
 import fs from 'fs'
 import matter from 'gray-matter'
 import getFormattedDate from './getFormattedDate'
+import { Post } from '../types'
 
-type GetCollectionData = (e: {collection: 'blog' | 'project'}) => Array<{
-  title: string
-  thumbnail: string
-  subtitle:string
-  tags?: Array<{name: string}>
-  slug: string,
-  date: string,
-  content: string
-}>
+type GetCollectionData = (e: {collection: 'blog' | 'project'}) => Array<Post>
 
 const getCollectionData: GetCollectionData = ({collection}) => {
   const filesInProjects = fs.readdirSync(`./public/posts/${collection}/`)

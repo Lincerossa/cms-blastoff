@@ -2,17 +2,10 @@ import { FC} from 'react'
 import { ListOfCards, Background, Padder, Wrapper } from '@/components'
 import theme from '@/helpers/style/theme'
 import getCollectionData from '@/helpers/utils/getCollectionData'
+import { Post } from '@/helpers/types'
 
 type HomePageProps = {
-  data: Array<{
-    title: string
-    subtitle: string
-    slug: string
-    date: string
-    thumbnail: string
-    tags?: Array<{name: string}>
-    content: string
-  }>
+  data: Post[]
 }
 const HomePage:FC<HomePageProps> = ({ data }) => {
   const items = data.map(({thumbnail, date, title, tags, subtitle, slug}) => ({

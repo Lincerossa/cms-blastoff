@@ -1,21 +1,12 @@
 import { FC } from 'react'
 import fs from 'fs'
-
-import matter from 'gray-matter'
 import { Background, PostHero, Padder, Wrapper, Markdown } from '@/components'
 import theme from '@/helpers/style/theme'
 import getPostData from '@/helpers/utils/getPostData'
+import { Post } from '@/helpers/types'
 
 type BlogProps = {
-  data: {
-    title: string
-    subtitle: string
-    date: string
-    slug: string
-    thumbnail: string
-    tags?: Array<{name: string}>
-    content: string
-  }
+  data: Post
 }
 
 const BlogPage:FC<BlogProps> = ({ data }) => {
