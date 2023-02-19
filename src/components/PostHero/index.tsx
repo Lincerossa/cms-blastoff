@@ -8,7 +8,7 @@ const PostHero: FC<PosHeroProps> = ({
 }) => (
   <S.MediaWrapper>
     <S.Media src={media.url} />
-    <Wrapper>
+    <Wrapper size="large">
       <S.MediaHeader>
         <S.Supertitle>{supertitle}</S.Supertitle>
         <S.Title>{title}</S.Title>

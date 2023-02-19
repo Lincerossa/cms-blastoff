@@ -17,7 +17,7 @@ export default BlogPage
 export async function getStaticProps({ params: { slug } }: {params: {slug: string}}) {
   return {
     props: {
-      data: getPostData({collection: 'blog', slug})
+      data: getPostData({ collection: 'blog', slug })
     }
   }
 }
@@ -25,9 +25,8 @@ export async function getStaticProps({ params: { slug } }: {params: {slug: strin
 export async function getStaticPaths() {
   const filesInProjects = fs.readdirSync('./public/posts/blog/')
 
-  const paths = filesInProjects.map(file => {
-    const filename = file.slice(0, file.indexOf('.'))
-    return { params: { slug: filename }}
+  const paths = filesInProjects.map(fileName => {
+    return { params: { slug: fileName.replace('.md', '') }}
   })
 
   return {

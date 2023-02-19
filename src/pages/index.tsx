@@ -15,7 +15,7 @@ export default HomePage
 export async function getStaticProps() {
   return {
     props: {
-      data: getCollectionData({collection:"blog"})
+      data: getCollectionData({ collection:"blog" })
     }
   }
 }

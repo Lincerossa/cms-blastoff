@@ -18,7 +18,7 @@ const BlogContainer: FC<BlogContainerProps> = ({data}) => {
         media={{url: thumbnail.replace('/public','')}}
       />
       <Background color='white' background={theme.colors.thirdary}>
-        <Wrapper>
+        <Wrapper size='large'>
           <Padder size='large'>
             <Markdown>
               {content}
