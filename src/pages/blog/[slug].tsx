@@ -2,14 +2,14 @@ import { FC } from 'react'
 import fs from 'fs'
 import getPostData from '@/helpers/utils/getPostData'
 import { Post } from '@/helpers/types'
-import { BlogContainer } from '@/containers'
+import { PostContainer } from '@/containers'
 
 type BlogPageProps = {
   data: Post
 }
 
 const BlogPage:FC<BlogPageProps> = ({ data }) => {
-  return <BlogContainer data={data} />
+  return <PostContainer data={data} />
 }
 
 export default BlogPage

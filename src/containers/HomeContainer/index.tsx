@@ -25,7 +25,7 @@ const HomeContainer: FC<HomeContainerProps> = ({data}) => {
 
   return (
     <>
-      <MainLabel text="Cms Blastoff" />
+      <MainLabel text="CMS BLASTOFF" />
       <Background background={theme.colors.primary} color='white'>
         <Wrapper size="large">
           <Padder size="large">
@@ -39,6 +39,7 @@ const HomeContainer: FC<HomeContainerProps> = ({data}) => {
       <Background background={theme.colors.thirdary}>
         <Wrapper size="large">
           <Padder size="large">
+            <RichText><h1>Full list of posts</h1></RichText>
             <ListOfCards items={items} />
           </Padder>
         </Wrapper>

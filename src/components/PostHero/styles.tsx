@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const MediaWrapper = styled.div`
-  height: calc(100vh - 2.5rem);
+  height: 100vh;
   position: relative;
   &:before{
     content: "";
