@@ -7,7 +7,6 @@ export default createGlobalStyle`
     font-size: 1rem;
     color: black;
     margin: 0;
-    pointer:
   }
   strong {
     font-weight: 600;
