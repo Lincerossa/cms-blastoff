@@ -26,17 +26,17 @@ const HomeContainer: FC<HomeContainerProps> = ({data}) => {
   return (
     <>
       <MainLabel text="CMS BLASTOFF" />
-      <Background background={theme.colors.primary} color='white'>
+      <Background background={theme.colors.thirdary} color='white'>
         <Wrapper size="large">
           <Padder size="large">
             <RichText>
-              <h1>Intro</h1>
+              <h2>INTRO</h2>
               <p>{DATA.intro}</p>
             </RichText>
           </Padder>
         </Wrapper>
       </Background>
-      <Background background={theme.colors.thirdary}>
+      <Background background={theme.colors.primary} color="white">
         <Wrapper size="large">
           <Padder size="large">
             <RichText><h1>Full list of posts</h1></RichText>
