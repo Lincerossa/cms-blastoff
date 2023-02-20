@@ -17,8 +17,8 @@ export default createGlobalStyle`
     position: relative;
     &:before {
       content:"";
-      width: 5rem;
-      border-bottom: 3px solid ${theme.colors.primary};
+      width: 3rem;
+      border-bottom: 2px solid ${theme.colors.primary};
       position: absolute;
       left: 0;
       bottom: 0;

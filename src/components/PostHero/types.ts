@@ -1,4 +1,4 @@
-export type PosHeroProps = {
+export type PostHeroProps = {
   text?: string
   media: { url: string }
   supertitle: string
