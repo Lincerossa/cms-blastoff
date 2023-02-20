@@ -32,7 +32,7 @@ const HomeContainer: FC<HomeContainerProps> = ({data}) => {
           <Padder size="large">
             <RichText>
               <h2>Intro</h2>
-              <p>{DATA.intro}</p>
+              <p>{DATA.HOME.intro}</p>
             </RichText>
           </Padder>
         </Wrapper>
@@ -40,7 +40,10 @@ const HomeContainer: FC<HomeContainerProps> = ({data}) => {
       <Background background={theme.colors.quaternary} color="white">
         <Wrapper size="large">
           <Padder size="large">
-            <RichText><h2>List of post</h2></RichText>
+            <RichText>
+              <h2>List of post</h2>
+              <p>{DATA.HOME.posts}</p>
+            </RichText>
             <ListOfCards items={items} />
           </Padder>
         </Wrapper>
