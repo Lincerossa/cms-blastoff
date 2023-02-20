@@ -14,3 +14,8 @@ export type Post = {
   date: string
   content: string
 }
+
+export type PostFile = {
+  data: Partial<Omit<Post, 'slug'>>
+  content?: string
+}
