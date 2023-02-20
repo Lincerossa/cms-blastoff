@@ -2,8 +2,8 @@ const theme = {
   colors: {
     primary: '#e84545',
     secondary: '#2b2e4a',
-    thirdary: '#f08a5d',
-    quaternary: '#f08a',
+    thirdary: '#F89880',
+    quaternary: '#FAA0A0',
     light: '#fdfaf6',
   },
 }
