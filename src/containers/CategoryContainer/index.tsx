@@ -1,8 +1,8 @@
 import { FC } from 'react'
 import { Post } from '@/helpers/types'
-import { ListOfCards, Background, Padder, Wrapper, MainLabel, RichText } from '@/components'
+import { ListOfCards, Background, Padder, Wrapper, MainLabel } from '@/components'
 import theme from '@/helpers/style/theme'
-import { DATA } from '@/helpers/const'
+import getFormattedDate from '@/helpers/utils/getFormattedDate'
 
 type CategoryContainerProps = {
   data: Post[]
@@ -17,7 +17,7 @@ const CategoryContainer: FC<CategoryContainerProps> = ({data, category}) => {
       width: 400,
       height: 500,
     },
-    supertitle: date,
+    supertitle: getFormattedDate(new Date(date)),
     title,
     tags: tags?.map(tag => tag?.name) ?? [],
     subtitle,
@@ -30,7 +30,6 @@ const CategoryContainer: FC<CategoryContainerProps> = ({data, category}) => {
       <Background background={theme.colors.thirdary}>
         <Wrapper size="large">
           <Padder size="large">
-            <RichText><h1>{category.toUpperCase()}</h1></RichText>
             <ListOfCards items={items} />
           </Padder>
         </Wrapper>
