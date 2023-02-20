@@ -3,6 +3,7 @@ import { Post } from '@/helpers/types'
 import { ListOfCards, Background, Padder, Wrapper, MainLabel, RichText } from '@/components'
 import theme from '@/helpers/style/theme'
 import { DATA } from '@/helpers/const'
+import getFormattedDate from '@/helpers/utils/getFormattedDate'
 
 type HomeContainerProps = {
   data: Post[]
@@ -16,7 +17,7 @@ const HomeContainer: FC<HomeContainerProps> = ({data}) => {
       width: 400,
       height: 500,
     },
-    supertitle: date,
+    supertitle: getFormattedDate(new Date(date)),
     title,
     tags: tags?.map(tag => tag?.name) ?? [],
     subtitle,
