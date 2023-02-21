@@ -69,6 +69,7 @@ const Layout: FC<LayoutProps> = ({ children, routes }) => {
         </Wrapper>
       </S.Header>
       {children}
+
       <S.Footer>
         <Wrapper size="large">
           <S.FooterInner>

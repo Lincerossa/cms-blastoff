@@ -1,11 +1,11 @@
 import { Post } from '../types'
 
-type FormatPostData = (e: Partial<Post>) => Post
+type FormatFile = (e: Partial<Post>) => Post
 
-const formatPostData: FormatPostData = ({title, subtitle, tags, thumbnail, slug, date, content}) => {
+const formatFile: FormatFile = ({title, subtitle, tags, thumbnail, slug, date, content}) => {
   return {
     title: title ?? '',
-    subtitle: subtitle ?? '',
+    subtitle: subtitle ?? '-',
     tags: tags ?? [],
     thumbnail: thumbnail?.replace('/public','') ?? '',
     slug: slug ?? '',
@@ -14,4 +14,4 @@ const formatPostData: FormatPostData = ({title, subtitle, tags, thumbnail, slug,
   }
 }
 
-export default formatPostData
+export default formatFile

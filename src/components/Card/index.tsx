@@ -4,7 +4,7 @@ import * as S from './styles'
 import { CardProps } from './types'
 
 const Card: FC<CardProps> = ({
-  image, title, tags, subtitle, date,
+  image, title, tags, subtitle, date, category
 }) => (
   <S.Card>
     <S.ImageWrapper>
@@ -12,6 +12,10 @@ const Card: FC<CardProps> = ({
     </S.ImageWrapper>
 
     <S.Description>
+      <S.Info>
+        <S.Date>{date}</S.Date>
+        <S.Category category={category}>{category.toLocaleUpperCase()}</S.Category>
+      </S.Info>
       <S.Title>{title}</S.Title>
       { tags?.length > 0
           && (
@@ -23,6 +27,7 @@ const Card: FC<CardProps> = ({
           )}
       {subtitle && <S.Subtitle>{subtitle}</S.Subtitle>}
     </S.Description>
+
   </S.Card>
 )
 

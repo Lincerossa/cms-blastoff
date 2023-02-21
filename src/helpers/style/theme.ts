@@ -1,11 +1,14 @@
 const theme = {
   colors: {
     primary: '#5cc6c7',
-    secondary: '#2b2e4a',
-    thirdary: '#11181c',
-    quaternary: '#18242c',
-    quinternary: '#64748b',
-    //others: ['#50aeeb', '#e1718b', '#c76358', '#edad68', '#edce68']
+    dark: '#11181c',
+    darkLight: '#18242c',
+    grey: '#64748b',
+    lightGrey: '#1f303a',
+    category: {
+      blog: '#edad68',
+      project: '#c76358'
+    }
   },
 }
 
