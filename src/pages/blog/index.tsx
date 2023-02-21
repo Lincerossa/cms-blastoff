@@ -10,11 +10,9 @@ const Page:FC<{data: CategoryPageProps}> = ({ data }) => {
 export default Page
 
 export async function getStaticProps() {
-  const data = getCollectionData({ collection: 'blog' })
-
   return {
     props: {
-      data
+      data: getCollectionData({ collection: 'blog' })
     }
   }
 }

@@ -64,11 +64,13 @@ export const Subtitle = styled.div`
 `
 
 export const Description = styled.div`
-  padding: 1rem;
   position: absolute;
   bottom: 0;
+  left: 0;
+  right: 0;
   color: white;
   z-index: 1;
+  padding: 1rem;
 `
 
 export const TagsWrapper = styled.div`
@@ -97,4 +99,22 @@ export const Tag = styled.div`
     height: .4rem;
     background: ${(props) => props.theme.colors.primary};
   }
+`
+
+export const Info = styled.div`
+  display: grid;
+  font-size: .75rem;
+  letter-spacing: .04em;
+  font-weight: 100;
+  display: flex;
+  align-items: center;
+  margin-bottom: .5rem;
+
+`
+export const Category = styled.div<{category: 'blog' | 'project'}>`
+  color: ${(props) => props.theme.colors.category[`${props.category}`]};
+  font-weight: 600;
+`
+export const Date = styled.div`
+  margin-right: .5rem;
 `

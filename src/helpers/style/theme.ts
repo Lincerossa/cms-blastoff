@@ -4,7 +4,11 @@ const theme = {
     dark: '#11181c',
     darkLight: '#18242c',
     grey: '#64748b',
-    others: ['#50aeeb', '#e1718b', '#c76358', '#edad68', '#edce68']
+    lightGrey: '#1f303a',
+    category: {
+      blog: '#edad68',
+      project: '#c76358'
+    }
   },
 }
 

@@ -6,4 +6,5 @@ export type CardProps = {
   subtitle?: string
   date: string
   tags: string[]
+  category: 'blog' | 'project'
 }
