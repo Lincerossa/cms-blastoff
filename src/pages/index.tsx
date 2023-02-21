@@ -12,7 +12,11 @@ export default Page
 
 export async function getStaticProps() {
 
-  const data = getCollectionData({ collection: 'blog' })
+  const data = {
+    items: [
+    ...getCollectionData({ collection: 'blog' }).items,
+    ...getCollectionData({ collection: 'project' }).items
+  ]}
 
   return {
     props: {

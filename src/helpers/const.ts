@@ -4,12 +4,20 @@ export const SETTINGS = {
     description: 'cms-blastoff: a beautiful headless starter cms',
     image: '/cms-blastoff.jpg',
   },
-  ROUTES: [{
-    hidden: false,
-    slug: '/blog',
-    href: '/blog',
-    label: 'Blog'
-  }]
+  ROUTES: [
+    {
+      hidden: false,
+      slug: '/blog',
+      href: '/blog',
+      label: 'Blog'
+    },
+    {
+      hidden: false,
+      slug: '/project',
+      href: '/project',
+      label: 'Project'
+    },
+  ]
 }
 export const DATA = {
   HOME: {
