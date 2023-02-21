@@ -1,21 +1,37 @@
 import { FC } from 'react'
 import getCollectionData from '@/helpers/utils/getCollectionData'
-import { Post } from '@/helpers/types'
-import { HomeContainer } from '@/containers'
 
-type HomePageProps = {
-  data: Post[]
-}
-const HomePage:FC<HomePageProps> = ({ data }) => {
-  return <HomeContainer data={data} />
+import HomePage from '@/components/Pages/HomePage'
+import {HomePageProps} from '@/components/Pages/types'
+import getFormattedDate from '@/helpers/utils/getFormattedDate'
+
+const Page:FC<{data:HomePageProps }> = ({ data }) => {
+  return <HomePage {...data } />
 }
   
-export default HomePage
+export default Page
 
 export async function getStaticProps() {
+
+  const data = getCollectionData({collection: 'blog'})
+
   return {
     props: {
-      data: getCollectionData({ collection:"blog" })
+      data: {
+        items: data.map(({thumbnail, date, title, tags, subtitle, slug}) => ({
+          image: {
+            alt: '',
+            src: thumbnail ?? '',
+            width: 400,
+            height: 500,
+          },
+          date: getFormattedDate(new Date(date)) ?? '',
+          title,
+          tags: tags?.map(tag => tag?.name) ?? [],
+          subtitle,
+          slug: `blog/${slug.replace('.md', '')}`
+        }))
+      }
     }
   }
 }

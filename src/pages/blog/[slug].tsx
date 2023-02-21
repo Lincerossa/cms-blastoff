@@ -1,18 +1,14 @@
 import { FC } from 'react'
 import fs from 'fs'
 import getPostData from '@/helpers/utils/getPostData'
-import { Post } from '@/helpers/types'
-import { PostContainer } from '@/containers'
+import PostPage from '@/components/Pages/PostPage'
+import { PostPageProps } from '@/components/Pages/types'
 
-type BlogPageProps = {
-  data: Post
+const Page:FC<{data: PostPageProps}> = ({ data }) => {
+  return <PostPage {...data} />
 }
 
-const BlogPage:FC<BlogPageProps> = ({ data }) => {
-  return <PostContainer data={data} />
-}
-
-export default BlogPage
+export default Page
 
 export async function getStaticProps({ params: { slug } }: {params: {slug: string}}) {
   return {
