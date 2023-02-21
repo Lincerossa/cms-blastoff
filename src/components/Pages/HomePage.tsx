@@ -1,7 +1,6 @@
 import { FC } from "react"
 import { DATA } from "@/helpers/const"
 import theme from "@/helpers/style/theme"
-import { Post } from "@/helpers/types"
 import Background from "../Background"
 import ListOfCards from "../ListOfCards"
 import MainLabel from "../MainLabel"
@@ -9,8 +8,6 @@ import Padder from "../Padder"
 import RichText from "../RichText"
 import Wrapper from "../Wrapper"
 import { HomePageProps } from "./types"
-
-
 
 const HomePage: FC<HomePageProps> = ({ items }) => {
   return (
