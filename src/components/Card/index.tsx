@@ -14,7 +14,7 @@ const Card: FC<CardProps> = ({
 
     <S.Description>
       <S.Info>
-        <S.Date>{getFormattedDate(new Date(date))}</S.Date>
+        <S.Date>{date}</S.Date>
         <S.Category category={category}>{category.toLocaleUpperCase()}</S.Category>
       </S.Info>
       <S.Title>{title}</S.Title>

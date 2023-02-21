@@ -12,7 +12,7 @@ const PostPage: FC<PostPageProps> = ({ title, date, subtitle, thumbnail, content
   return (
     <>
       <PostHero
-        supertitle={getFormattedDate(new Date(date))}
+        supertitle={date}
         title={title}
         subtitle={subtitle}
         thumbnail={thumbnail}
