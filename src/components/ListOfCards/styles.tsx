@@ -9,3 +9,33 @@ export const ListItem = styled.div`
     }
   }
 `
+
+export const Pagination = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-weight: 600;
+  ul {
+    margin: 0;
+    display: flex;
+    padding: 0;
+    list-style: none;
+    li {
+      cursor: pointer;
+      padding: 0 .25rem;
+      border-radius: 3px;
+    }
+    a {
+      color: white !important;
+      transition: .2s all;
+      &:hover {
+        color: ${props => props.theme.colors.primary} !important;
+      }
+    }
+    .selected {
+      * {
+        color: ${props => props.theme.colors.primary} !important;
+    }
+    }
+  }
+`
