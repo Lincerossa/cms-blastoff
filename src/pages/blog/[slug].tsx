@@ -25,12 +25,10 @@ export async function getStaticProps({ params: { slug } }: {params: {slug: strin
 export async function getStaticPaths() {
   const filesInProjects = fs.readdirSync('./public/posts/blog/')
 
-  const paths = filesInProjects.map(fileName => {
-    return { params: { slug: fileName.replace('.md', '') }}
-  })
-
   return {
-    paths,
+    paths: filesInProjects.map(fileName => {
+      return { params: { slug: fileName.replace('.md', '') }}
+    }),
     fallback: false
   }
 }

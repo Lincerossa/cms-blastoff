@@ -1,9 +1,5 @@
 import styled from 'styled-components'
 
-import { CardProps } from './types'
-
-type TImageWrapper = Pick<CardProps, 'layout'>
-
 export const Card = styled.div`
   background-color: white;
   display: block;
@@ -18,7 +14,7 @@ export const Card = styled.div`
   }
 `
 
-export const ImageWrapper = styled.div<TImageWrapper>`
+export const ImageWrapper = styled.div`
   position: relative;
 
   overflow: hidden;
@@ -33,18 +29,15 @@ export const ImageWrapper = styled.div<TImageWrapper>`
     z-index: 1;
     background: linear-gradient(to top,rgba(0,0,0,.75),transparent);
   }
-  ${(props) => props.layout === 'auto' && `
-    padding-top: 100%;
-    img {
-      position: absolute;
-      top:0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      object-fit: cover;
-    }
-  
-  `}
+  padding-top: 100%;
+  img {
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    object-fit: cover;
+  }
 
 `
 export const Media = styled.img`
@@ -56,26 +49,18 @@ export const Media = styled.img`
   height: 100%;
 `
 
-export const Supertitle = styled.div`
-  font-family: sans-serif;
-  color: white;
-  font-weight: 100;
-  font-size: .875rem;
-  text-transform: uppercase;
-  margin-bottom: .5rem;
-`
-
 export const Title = styled.div`
-  font-size: 1.75rem;
-  font-weight: 100;
+  font-size: 1.25rem;
+  font-weight: 600;
   line-height: 1;
   margin-bottom: .5rem;
   color: white;
+  letter-spacing: 0.06rem;
 `
 
 export const Subtitle = styled.div`
   font-size: .75rem;
-  color: white;
+  color: ${(props) => props.theme.colors.quinternary};
   font-weight: 100;
 `
 
@@ -91,6 +76,7 @@ export const TagsWrapper = styled.div`
   display: flex;
   margin-bottom: 1rem;
   letter-spacing: .04em;
+  
 `
 export const Tag = styled.div`
   border-radius: 4px;
@@ -100,7 +86,6 @@ export const Tag = styled.div`
   font-family: sans-serif;
   position: relative;
   margin-right: 1rem;
-
   text-transform: uppercase;
   &:after {
     content: "";

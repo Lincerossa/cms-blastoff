@@ -17,7 +17,7 @@ const CategoryContainer: FC<CategoryContainerProps> = ({data, category}) => {
       width: 400,
       height: 500,
     },
-    supertitle: getFormattedDate(new Date(date)),
+    date: getFormattedDate(new Date(date)),
     title,
     tags: tags?.map(tag => tag?.name) ?? [],
     subtitle,

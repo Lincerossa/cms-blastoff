@@ -4,15 +4,14 @@ import * as S from './styles'
 import { CardProps } from './types'
 
 const Card: FC<CardProps> = ({
-  image, supertitle, title, tags, subtitle, layout,
+  image, title, tags, subtitle, date,
 }) => (
   <S.Card>
-    <S.ImageWrapper layout={layout}>
+    <S.ImageWrapper>
       <Image image={image} />
     </S.ImageWrapper>
 
     <S.Description>
-      <S.Supertitle>{supertitle}</S.Supertitle>
       <S.Title>{title}</S.Title>
       { tags?.length > 0
           && (

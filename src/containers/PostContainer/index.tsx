@@ -16,7 +16,7 @@ const PostContainer: FC<PostContainerProps> = ({data}) => {
         supertitle={getFormattedDate(new Date(date))}
         title={title}
         subtitle={subtitle}
-        media={{url: thumbnail.replace('/public','')}}
+        image={thumbnail}
       />
       <Background color='white' background={theme.colors.thirdary}>
         <Wrapper size='large'>

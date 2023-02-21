@@ -4,10 +4,10 @@ import Wrapper from '../Wrapper'
 import { PostHeroProps } from './types'
 
 const PostHero: FC<PostHeroProps> = ({
-  media, supertitle, title, subtitle,
+  image, supertitle, title, subtitle,
 }) => (
   <S.MediaWrapper>
-    <S.Media src={media.url} />
+    <S.Media src={image} />
     <Wrapper size="large">
       <S.MediaHeader>
         <S.Supertitle>{supertitle}</S.Supertitle>

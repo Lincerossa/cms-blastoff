@@ -11,17 +11,16 @@ import { ListOfCardsProps } from './types'
 const ListOfCards: FC<ListOfCardsProps> = ({ items }) => (
   <List columns={3}>
     {items.map(({
-      slug, image, supertitle, title, tags, subtitle,
+      slug, image, date, title, tags, subtitle,
     }) => (
       <Link key={slug} href={`/${slug}`}>
           <S.ListItem>
             <Card
               image={image}
-              supertitle={supertitle}
+              date={date}
               title={title}
               subtitle={subtitle}
               tags={tags}
-              layout='auto'
             />
           </S.ListItem>
       </Link>
