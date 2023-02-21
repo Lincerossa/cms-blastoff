@@ -1,6 +1,6 @@
 export type PostHeroProps = {
   text?: string
-  image: string
+  thumbnail: string
   supertitle: string
   title: string
   subtitle: string
