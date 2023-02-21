@@ -28,5 +28,4 @@ export const DATA = {
     In summary, this blog is a fine example of a static website that's beautifully crafted, performs well, and is highly secure. By leveraging the benefits of a static website, this blog delivers an exceptional user experience while keeping costs low and maintaining a robust security posture.`,
     posts: `This is the full list of posts. It is an mvp and sooneer or later we are going to improve the user experience:`
   }
-  
 }

@@ -21,7 +21,7 @@ const Card: FC<CardProps> = ({
           && (
           <S.TagsWrapper>
             {
-              tags?.map((tag) => <S.Tag key={tag}>{tag}</S.Tag>)
+              tags?.map((tag, i) => <S.Tag isLast={i === tags.length - 1} key={tag}>{tag}</S.Tag>)
             }
           </S.TagsWrapper>
           )}
