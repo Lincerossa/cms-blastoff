@@ -1,3 +1,4 @@
+import getFormattedDate from '@/helpers/utils/getFormattedDate'
 import React, { FC } from 'react'
 import Image from '../Image'
 import * as S from './styles'
@@ -13,7 +14,7 @@ const Card: FC<CardProps> = ({
 
     <S.Description>
       <S.Info>
-        <S.Date>{date}</S.Date>
+        <S.Date>{getFormattedDate(new Date(date))}</S.Date>
         <S.Category category={category}>{category.toLocaleUpperCase()}</S.Category>
       </S.Info>
       <S.Title>{title}</S.Title>
@@ -21,7 +22,7 @@ const Card: FC<CardProps> = ({
           && (
           <S.TagsWrapper>
             {
-              tags?.map((tag) => <S.Tag key={tag}>{tag}</S.Tag>)
+              tags?.map((tag, i) => <S.Tag isLast={i === tags.length - 1} key={tag}>{tag}</S.Tag>)
             }
           </S.TagsWrapper>
           )}

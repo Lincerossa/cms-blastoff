@@ -1,6 +1,5 @@
 import theme from "@/helpers/style/theme"
 import getFormattedDate from "@/helpers/utils/getFormattedDate"
-import { title } from "process"
 import { FC } from "react"
 import Background from "../Background"
 import Markdown from "../Markdown"

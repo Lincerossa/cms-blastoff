@@ -79,7 +79,7 @@ export const TagsWrapper = styled.div`
   letter-spacing: .04em;
   
 `
-export const Tag = styled.div`
+export const Tag = styled.div<{isLast: boolean}>`
   border-radius: 4px;
   color: white;
   font-size: .6rem;
@@ -94,6 +94,7 @@ export const Tag = styled.div`
     top: 45%;
     transform: translate(0,-50%);
     border-radius: 50%;
+    display: ${props => props.isLast ? 'none' : 'block'};
     right: -.7rem;
     width: .4rem;
     height: .4rem;

@@ -3,7 +3,6 @@ import fs from 'fs'
 import matter from 'gray-matter'
 import { PostFile } from '../types'
 import formatFile from './formatFile'
-import getFormattedDate from './getFormattedDate'
 
 type GetCollectionData = (e: {collection: 'blog' | 'project'}) => {
   items: ListOfCardsProps['items']
@@ -28,7 +27,7 @@ const getCollectionData: GetCollectionData = ({collection}) => {
       width: 400,
       height: 500,
     },
-    date: getFormattedDate(new Date(date)),
+    date,
     title,
     tags: tags?.map(tag => tag?.name) ?? [],
     subtitle,
