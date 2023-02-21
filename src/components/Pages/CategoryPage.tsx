@@ -11,7 +11,7 @@ const CategoryPage: FC<CategoryPageProps> = ({ category, items }) => {
   return (
     <>
       <MainLabel text={category.toUpperCase()} />
-      <Background background={theme.colors.thirdary}>
+      <Background background={theme.colors.darkLight}>
         <Wrapper size="large">
           <Padder size="large">
             <ListOfCards items={items} />

@@ -16,7 +16,6 @@ export const Card = styled.div`
 
 export const ImageWrapper = styled.div`
   position: relative;
-
   overflow: hidden;
   :before{
     content: "";
@@ -60,7 +59,7 @@ export const Title = styled.div`
 
 export const Subtitle = styled.div`
   font-size: .75rem;
-  color: ${(props) => props.theme.colors.quinternary};
+  color: ${(props) => props.theme.colors.grey};
   font-weight: 100;
 `
 

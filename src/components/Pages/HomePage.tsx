@@ -12,18 +12,8 @@ import { HomePageProps } from "./types"
 const HomePage: FC<HomePageProps> = ({ items }) => {
   return (
     <>
-      <MainLabel text="CMS BLASTOFF" />
-      <Background background={theme.colors.thirdary} color='white'>
-        <Wrapper size="large">
-          <Padder size="large">
-            <RichText>
-              <h2>Intro</h2>
-              <p>{DATA.HOME.intro}</p>
-            </RichText>
-          </Padder>
-        </Wrapper>
-      </Background>
-      <Background background={theme.colors.quaternary} color="white">
+      <MainLabel text="BLASTOFF" />
+      <Background background={theme.colors.darkLight} color="white">
         <Wrapper size="large">
           <Padder size="large">
             <RichText>
@@ -31,6 +21,16 @@ const HomePage: FC<HomePageProps> = ({ items }) => {
               <p>{DATA.HOME.posts}</p>
             </RichText>
             <ListOfCards items={items} />
+          </Padder>
+        </Wrapper>
+      </Background>
+      <Background background={theme.colors.dark} color='white'>
+        <Wrapper size="large">
+          <Padder size="large">
+            <RichText>
+              <h2>Introduction</h2>
+              <p>{DATA.HOME.intro}</p>
+            </RichText>
           </Padder>
         </Wrapper>
       </Background>

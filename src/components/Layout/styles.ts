@@ -14,7 +14,6 @@ export const Main = styled.main`
 export const MainLabel = styled.div`
   height: 60vh;
   position: relative;
-  background-color: ${(props) => props.theme.colors.secondary};
   display: flex;
   align-items: center;
   font-size: 5rem;
@@ -34,7 +33,7 @@ export const Header = styled.div<StyleProps>`
   transition: .2s  all;
   transition-timing-function: ease-in;
   justify-content: space-between;
-  background: ${(props) => (props.initial ? 'transparent' : 'rgb(255,255,255,.9)')};
+  background: ${(props) => (props.initial ? 'transparent' : '#273c49')};
   box-shadow: ${(props) => (props.initial ? 'none' : '0px 2px 8px rgba(0,0,0,0.15)')};
   ${(props) => (props.direction === 'down' && !props.isMenuOpen
     ? 'transform: translate(0,-100%);'
@@ -53,7 +52,6 @@ export const HeaderInner = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: .75rem 0;
 `
 
 export const Menu = styled.div<StyleProps>`
@@ -64,7 +62,7 @@ export const Menu = styled.div<StyleProps>`
     bottom: 0;
     left: 0;
     right: 0;
-    background: ${props.theme.colors.secondary};
+    background: ${props.theme.colors.dark};
   ` : 'none')};
 
   @media (min-width: 768px){
@@ -96,19 +94,18 @@ export const MenuItem = styled.div<StyleProps>`
   font-weight: 400;
   line-height: 1;
   letter-spacing: .1rem;
-  font-size: 2rem;
+  font-size: 1rem;
   position: relative;
   margin-bottom: 1.5rem;
 
   @media (min-width: 768px){
     margin-bottom: 0;
-    font-size: 1.5rem;
+    font-size: 1rem;
     margin-right: 2rem;
   }
   
   a {
-    color: ${(props) => ((props.initial || props.isMenuOpen) ? 'white' : props.theme.colors.secondary)} !important;
-    ${(props) => props.isActive && `color: ${props.theme.colors.primary}  !important`};
+    color: white !important;
     &:hover{
       color: ${(props) => props.theme.colors.primary} !important;
     }
@@ -122,7 +119,7 @@ export const MenuItem = styled.div<StyleProps>`
 
 export const Hamburger = styled.div<StyleProps>`
   position: absolute;
-  top: 1.25rem;
+  top: 0.75rem;
   right: 1rem;
   width: 25px;
   @media (min-width: 768px){
@@ -131,14 +128,13 @@ export const Hamburger = styled.div<StyleProps>`
   svg {
     width: 100%;
     height: 100%;
-    fill: ${(props) => ((props.initial || props.isMenuOpen) ? 'white' : props.theme.colors.secondary)} !important;
+    fill: white !important;
   }
 `
 
 export const Footer = styled.div`
-background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23CA99FE' fill-opacity='0.4'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  background-color: ${(props) => props.theme.colors.thirdary};
-  
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23CA99FE' fill-opacity='0.4'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-color: ${(props) => props.theme.colors.dark};
 `
 
 export const FooterInner = styled.div`
@@ -157,8 +153,9 @@ export const ExternalLink = styled.a`
   display: flex;
   align-items: center;
   color: white !important;
+
   &:hover {
-    color: ${(props) => props.theme.colors.primary};
+    color: ${(props) => props.theme.colors.primary} !important;
   }
 `
 
@@ -200,7 +197,7 @@ export const Logo = styled.div<StyleProps>`
   svg {
     width: 100%;
     height: 100%;
-    fill: ${(props) => ((props.initial || props.isMenuOpen) ? 'white' : props.theme.colors.secondary)} !important;
+    fill: white !important;
     transition: .2s  all;
   }
   &:hover {

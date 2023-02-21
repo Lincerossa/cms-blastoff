@@ -18,7 +18,7 @@ const PostPage: FC<PostPageProps> = ({ title, date, subtitle, thumbnail, content
         subtitle={subtitle}
         thumbnail={thumbnail}
       />
-      <Background color='white' background={theme.colors.thirdary}>
+      <Background color='white' background={theme.colors.darkLight}>
         <Wrapper size='large'>
           <Padder size='large'>
             <Markdown>

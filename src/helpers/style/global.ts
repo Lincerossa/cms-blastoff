@@ -12,6 +12,7 @@ export default createGlobalStyle`
     font-weight: 600;
   }
   h1, h2, h3, h4 {
+    margin-top: 0;
     font-weight: 500;
     color: ${theme.colors.primary};
     position: relative;
@@ -58,7 +59,7 @@ export default createGlobalStyle`
     color: ${theme.colors.primary} !important;
     text-decoration: none;
     &:hover{
-      color: ${theme.colors.thirdary} !important;
+      color: ${theme.colors.dark} !important;
     }
   }
   a > * {
