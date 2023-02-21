@@ -3,6 +3,7 @@ import fs from 'fs'
 import matter from 'gray-matter'
 import { PostFile } from '../types'
 import formatFile from './formatFile'
+import getFormattedDate from './getFormattedDate'
 
 type GetCollectionData = (e: {collection: 'blog' | 'project'}) => {
   items: ListOfCardsProps['items']
@@ -11,7 +12,7 @@ type GetCollectionData = (e: {collection: 'blog' | 'project'}) => {
 
 const getCollectionData: GetCollectionData = ({collection}) => {
   const filesInProjects = fs.readdirSync(`./public/posts/${collection}/`)
-  const data = filesInProjects.map(fileName => {
+  const formattedFiles = filesInProjects.map(fileName => {
     const { data, content }: PostFile = matter(fs.readFileSync(`./public/posts/${collection}/${fileName}`, 'utf8'))
     return formatFile({
       ...data,
@@ -20,7 +21,7 @@ const getCollectionData: GetCollectionData = ({collection}) => {
     })
   })
 
-  const items = data.map(({thumbnail, date, title, tags, subtitle, slug }) => ({
+  const items = formattedFiles.map(({thumbnail, date, title, tags, subtitle, slug }) => ({
     image: {
       alt: '',
       src: thumbnail,
@@ -28,6 +29,7 @@ const getCollectionData: GetCollectionData = ({collection}) => {
       height: 500,
     },
     date,
+    formattedDate: getFormattedDate(new Date(date)),
     title,
     tags: tags?.map(tag => tag?.name) ?? [],
     subtitle,

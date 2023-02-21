@@ -23,19 +23,10 @@ const ListOfCards: FC<ListOfCardsProps> = ({ items, itemsPerPage=6 }) => {
   return (
     <>
       <List columns={3}>
-        {currentItems.map(({
-          slug, image, date, title, tags, subtitle, category,
-        }) => (
+        {currentItems.map(({ slug, ...item }) => (
           <Link key={slug} href={`/${slug}`}>
               <S.ListItem>
-                <Card
-                  image={image}
-                  date={date}
-                  title={title}
-                  subtitle={subtitle}
-                  tags={tags}
-                  category={category}
-                />
+                <Card {...item} />
               </S.ListItem>
           </Link>
         ))}

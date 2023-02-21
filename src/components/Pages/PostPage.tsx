@@ -1,5 +1,4 @@
 import theme from "@/helpers/style/theme"
-import getFormattedDate from "@/helpers/utils/getFormattedDate"
 import { FC } from "react"
 import Background from "../Background"
 import Markdown from "../Markdown"
@@ -8,11 +7,11 @@ import PostHero from "../PostHero"
 import Wrapper from "../Wrapper"
 import { PostPageProps } from "./types"
 
-const PostPage: FC<PostPageProps> = ({ title, date, subtitle, thumbnail, content}) => {
+const PostPage: FC<PostPageProps> = ({ title, formattedDate, subtitle, thumbnail, content, }) => {
   return (
     <>
       <PostHero
-        supertitle={date}
+        supertitle={formattedDate}
         title={title}
         subtitle={subtitle}
         thumbnail={thumbnail}

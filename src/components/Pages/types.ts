@@ -15,5 +15,7 @@ export type PostPageProps = {
   title: string
   thumbnail: string
   content: string
+  formattedDate: string
+  tags?: [{name: string}]
 }
 

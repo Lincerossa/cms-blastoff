@@ -12,6 +12,7 @@ export type Post = {
   tags?: Array<{name: string}>
   slug: string
   date: string
+  formattedDate: string
   content: string
 }
 
