@@ -23,3 +23,16 @@ export type PostFile = {
   }
   content?: string
 }
+export type SettingsProps = {
+  SEO: {
+    title: string
+    description: string
+    image: string
+  },
+  ROUTES: Array<{hidden: boolean, slug: string, href: string, label: string, category: 'blog' | 'project'}>,
+  DATA: {
+    HOME: {
+      intro: string
+    }
+  }
+}

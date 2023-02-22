@@ -1,5 +1,4 @@
 import { FC } from "react"
-import { DATA } from "@/helpers/const"
 import theme from "@/helpers/style/theme"
 import Background from "../Background"
 import ListOfCards from "../ListOfCards"
@@ -8,15 +7,17 @@ import Padder from "../Padder"
 import RichText from "../RichText"
 import Wrapper from "../Wrapper"
 import { HomePageProps } from "./types"
+import { useSettings } from "@/providers/SettingsProvider"
 
 const HomePage: FC<HomePageProps> = ({ items }) => {
+  const { DATA } = useSettings()
   return (
     <>
       <MainLabel text="BLASTOFF" />
       <Background background={theme.colors.darkLight} color="white">
         <Wrapper size="large">
           <Padder size="large">
-            <ListOfCards items={items} />
+            <ListOfCards items={items} showFilters />
           </Padder>
         </Wrapper>
       </Background>

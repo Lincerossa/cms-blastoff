@@ -1,27 +1,31 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
 import Link from 'next/link'
 import ReactPaginate from 'react-paginate'
 import Card from '../Card'
+import Button from '../Button'
 import List from '../List'
 import * as S from './styles'
-
+import { useListPagination } from './hooks'
 import { ListOfCardsProps } from './types'
 import Padder from '../Padder'
+import { useSettings } from '@/providers/SettingsProvider'
 
-const ListOfCards: FC<ListOfCardsProps> = ({ items, itemsPerPage=6 }) => {
-  const [itemOffset, setItemOffset] = useState(0)
-  const endOffset = itemOffset + itemsPerPage
-  const currentItems = items.slice(itemOffset, endOffset)
-  const pageCount = Math.ceil(items.length / itemsPerPage)
-
-  const handlePageClick = (event: { selected: number }) => {
-    const newOffset = (event.selected * itemsPerPage) % items.length
-    setItemOffset(newOffset)
-  }
-
+const ListOfCards: FC<ListOfCardsProps> = ({ items, itemsPerPage=6, showFilters }) => {
+  const { pageCount, selectedPage, currentItems, handlePageClick, handleCategoryClick } = useListPagination({items, itemsPerPage})
+  const { ROUTES } = useSettings()
+  
   return (
     <>
+      {showFilters && <S.ButtonsWrapper>
+        <S.ButtonWrapper>
+          <Button onClick={() => handleCategoryClick(undefined)} label='ALL' />
+        </S.ButtonWrapper>
+        {ROUTES.map(({ label, slug, category}) => (
+          <S.ButtonWrapper key={slug}>
+            <Button onClick={() => handleCategoryClick(category)} category={category} label={label.toUpperCase()} />
+          </S.ButtonWrapper>
+        ))}
+      </S.ButtonsWrapper>}
       <List columns={3}>
         {currentItems.map(({ slug, ...item }) => (
           <Link key={slug} href={`/${slug}`}>
@@ -41,6 +45,7 @@ const ListOfCards: FC<ListOfCardsProps> = ({ items, itemsPerPage=6 }) => {
             marginPagesDisplayed={2}
             pageRangeDisplayed={3}
             previousLabel="Prev"
+            forcePage={selectedPage}
           />
         </S.Pagination>
       </Padder>

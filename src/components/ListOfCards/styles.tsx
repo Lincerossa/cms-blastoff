@@ -39,3 +39,12 @@ export const Pagination = styled.div`
     }
   }
 `
+
+export const ButtonsWrapper = styled.div`
+  display: flex;
+  margin-bottom: 2rem;
+`
+
+export const ButtonWrapper = styled.div`
+  margin-right: 1rem;
+`

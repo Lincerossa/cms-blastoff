@@ -5,6 +5,7 @@ import Head from 'next/head'
 import { ThemeProvider } from 'styled-components'
 import { SETTINGS } from '@/helpers/const'
 import { Layout } from '@/components'
+import { SettingsProvider } from '@/providers/SettingsProvider'
 
 export default function App({ Component, pageProps }: AppProps) {
   const seo = pageProps?.seo || SETTINGS.SEO
@@ -22,9 +23,11 @@ export default function App({ Component, pageProps }: AppProps) {
     </Head>
     <GlobalStyle />
     <ThemeProvider theme={theme}>
-      <Layout routes={SETTINGS.ROUTES}>
-        <Component {...pageProps} />
-      </Layout>
+      <SettingsProvider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </SettingsProvider>
     </ThemeProvider>
   </>
 }
