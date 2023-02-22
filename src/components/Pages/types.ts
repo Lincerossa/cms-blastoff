@@ -16,6 +16,7 @@ export type PostPageProps = {
   thumbnail: string
   content: string
   formattedDate: string
-  tags?: [{name: string}]
+  category: 'blog' | 'project'
+  tags: string[]
 }
 

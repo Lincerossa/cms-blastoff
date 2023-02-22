@@ -7,7 +7,8 @@ import PostHero from "../PostHero"
 import Wrapper from "../Wrapper"
 import { PostPageProps } from "./types"
 import Border from './border.svg'
-const PostPage: FC<PostPageProps> = ({ title, formattedDate, subtitle, thumbnail, content, }) => {
+
+const PostPage: FC<PostPageProps> = ({ title, tags, formattedDate, subtitle, thumbnail, content, category}) => {
   return (
     <>
       <Background color='white' background={theme.colors.dark}>
@@ -15,10 +16,12 @@ const PostPage: FC<PostPageProps> = ({ title, formattedDate, subtitle, thumbnail
             <Wrapper size='large'>
               <Padder size='large'>
                 <PostHero
-                  supertitle={formattedDate}
+                  date={formattedDate}
                   title={title}
                   subtitle={subtitle}
                   thumbnail={thumbnail}
+                  category={category}
+                  tags={tags}
                 />
               </Padder>
             </Wrapper>
