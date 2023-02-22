@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, PropsWithChildren, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
@@ -7,12 +7,13 @@ import Hamburger from './hamburger.svg'
 import Close from './close.svg'
 import Wrapper from '../Wrapper'
 import * as S from './styles'
-import { LayoutProps } from './types'
 import Pointer from './Pointer'
+import { useSettings } from '@/providers/SettingsProvider'
 
-const Layout: FC<LayoutProps> = ({ children, routes }) => {
+const Layout: FC<PropsWithChildren> = ({ children }) => {
   const [{ initial, direction }, setScrollStatus] = useState<{position: number, initial:boolean, direction: 'up' | 'down'}>({ position: 0, initial: true, direction: 'up' })
   const [isMenuOpen, setMenuOpen] = useState<boolean>(false)
+  const { ROUTES } = useSettings()
   const router = useRouter()
   const { asPath } = router
   function handleGetDirection() {
@@ -50,7 +51,7 @@ const Layout: FC<LayoutProps> = ({ children, routes }) => {
             <S.Menu isMenuOpen={isMenuOpen}>
               <S.MenuItems>
                 {
-                routes?.filter((e) => !e.hidden).map((e) => (
+                ROUTES?.filter((e) => !e.hidden).map((e) => (
                   <S.MenuItem key={e.slug} isActive={e.slug === asPath} direction={direction} isMenuOpen={isMenuOpen} initial={initial}>
                     <Link href={e.href} as={e.slug}>
                       {e.label}
