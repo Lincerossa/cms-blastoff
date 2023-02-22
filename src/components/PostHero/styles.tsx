@@ -11,7 +11,7 @@ export const PostHero = styled.div`
 `
 
 export const Media = styled.img<{category: 'blog' | 'project'}>`
-  border: 3px solid ${(props) => props.theme.colors.category[`${props.category}`]};
+  border: 2px solid ${(props) => props.theme.colors.category[`${props.category}`]};
   display: block;
   width: 100%;
   height: 250px;
@@ -31,8 +31,16 @@ export const Content = styled.div`
 
   @media (min-width: 768px){
     width: 50%;
-
   }
+`
+
+export const ButtonWrapper = styled.div`
+  margin-bottom: 1rem;
+  @media (min-width: 768px){
+    margin: 0;
+    font-size: 1rem;
+  }
+
 `
 
 export const Info = styled.div`
@@ -43,7 +51,6 @@ export const Info = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
-
 `
 export const Category = styled.div<{category: 'blog' | 'project'}>`
   color: ${(props) => props.theme.colors.category[`${props.category}`]};

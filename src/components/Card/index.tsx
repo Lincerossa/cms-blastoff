@@ -13,8 +13,8 @@ const Card: FC<CardProps> = ({
 
     <S.Description>
       <S.Info>
-        <S.Date>{formattedDate}</S.Date>
         <S.Category category={category}>{category.toLocaleUpperCase()}</S.Category>
+        <S.Date>{formattedDate}</S.Date>
       </S.Info>
       <S.Title>{title}</S.Title>
       { tags?.length > 0

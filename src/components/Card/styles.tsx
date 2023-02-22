@@ -114,7 +114,7 @@ export const Info = styled.div`
 export const Category = styled.div<{category: 'blog' | 'project'}>`
   color: ${(props) => props.theme.colors.category[`${props.category}`]};
   font-weight: 600;
+  margin-right: .5rem;
 `
 export const Date = styled.div`
-  margin-right: .5rem;
 `
