@@ -8,12 +8,15 @@ export const Button = styled.button<{category?: 'blog' | 'project'}>`
   padding: 8px 16px;
   border: none;
   border-radius: 10000px;
-  background-color: ${(props) =>props.theme.colors.lightGrey};
-  color: rgb(133, 147, 167);
+  background-color: ${(props) =>props.theme.colors.softGrey};
+  color: ${(props) =>props.theme.colors.light};
   transition: background-color 200ms ease 0s;
+  white-space: pre;
   user-select: none;
   cursor: pointer;
   &:hover {
-    background-color: ${(props) => props.category ? props.theme.colors.category[`${props.category}`] : props.theme.colors.softGrey};
+    cursor: pointer;
+    background-color: ${(props) => props.category ? props.theme.colors.category[`${props.category}`] : props.theme.colors.primary};
+    color: ${(props) => props.theme.colors.dark};
   }
 `
