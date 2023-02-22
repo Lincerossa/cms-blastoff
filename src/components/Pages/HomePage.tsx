@@ -17,7 +17,7 @@ const HomePage: FC<HomePageProps> = ({ items }) => {
       <Background background={theme.colors.darkLight} color="white">
         <Wrapper size="large">
           <Padder size="large">
-            <ListOfCards items={items} />
+            <ListOfCards items={items} showFilters />
           </Padder>
         </Wrapper>
       </Background>

@@ -10,13 +10,13 @@ import { ListOfCardsProps } from './types'
 import Padder from '../Padder'
 import { useSettings } from '@/providers/SettingsProvider'
 
-const ListOfCards: FC<ListOfCardsProps> = ({ items, itemsPerPage=6 }) => {
+const ListOfCards: FC<ListOfCardsProps> = ({ items, itemsPerPage=6, showFilters }) => {
   const { pageCount, selectedPage, currentItems, handlePageClick, handleCategoryClick } = useListPagination({items, itemsPerPage})
   const { ROUTES } = useSettings()
   
   return (
     <>
-      <S.ButtonsWrapper>
+      {showFilters && <S.ButtonsWrapper>
         <S.ButtonWrapper>
           <Button onClick={() => handleCategoryClick(undefined)} label='ALL' />
         </S.ButtonWrapper>
@@ -25,7 +25,7 @@ const ListOfCards: FC<ListOfCardsProps> = ({ items, itemsPerPage=6 }) => {
             <Button onClick={() => handleCategoryClick(category)} category={category} label={label.toUpperCase()} />
           </S.ButtonWrapper>
         ))}
-      </S.ButtonsWrapper>
+      </S.ButtonsWrapper>}
       <List columns={3}>
         {currentItems.map(({ slug, ...item }) => (
           <Link key={slug} href={`/${slug}`}>
