@@ -8,6 +8,13 @@ export const SETTINGS: SettingsProps = {
   },
   ROUTES: [
     {
+      hidden: true,
+      slug: '/',
+      href: '/',
+      label: 'All',
+      category: undefined
+    },
+    {
       hidden: false,
       slug: '/blog',
       href: '/blog',

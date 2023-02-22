@@ -29,7 +29,7 @@ export type SettingsProps = {
     description: string
     image: string
   },
-  ROUTES: Array<{hidden: boolean, slug: string, href: string, label: string, category: 'blog' | 'project'}>,
+  ROUTES: Array<{hidden: boolean, slug: string, href: string, label: string, category?: 'blog' | 'project'}>,
   DATA: {
     HOME: {
       intro: string

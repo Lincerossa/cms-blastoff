@@ -103,6 +103,7 @@ export const MenuItem = styled.div<StyleProps>`
     font-size: 1rem;
     margin-right: 2rem;
   }
+
   
   a {
     color: white !important;
@@ -110,6 +111,12 @@ export const MenuItem = styled.div<StyleProps>`
       color: ${(props) => props.theme.colors.primary} !important;
     }
   }
+  ${(props) => props.isActive && `
+
+    a {
+      color: ${props.theme.colors.primary} !important;
+    }
+  `};
 
   &:last-of-type{
     margin: 0;

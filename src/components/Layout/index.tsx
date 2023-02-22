@@ -14,8 +14,7 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
   const [{ initial, direction }, setScrollStatus] = useState<{position: number, initial:boolean, direction: 'up' | 'down'}>({ position: 0, initial: true, direction: 'up' })
   const [isMenuOpen, setMenuOpen] = useState<boolean>(false)
   const { ROUTES } = useSettings()
-  const router = useRouter()
-  const { asPath } = router
+  const  { asPath, events } = useRouter()
   function handleGetDirection() {
     setScrollStatus((prevState) => ({
       position: window.scrollY,
@@ -25,12 +24,12 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
   }
 
   useEffect(() => {
-    router.events.on('routeChangeComplete', () => setMenuOpen(false))
+    events.on('routeChangeComplete', () => setMenuOpen(false))
     window.addEventListener('scroll', handleGetDirection, false)
     return () => {
       window.removeEventListener('scroll', handleGetDirection, false)
     }
-  }, [router.events])
+  }, [events])
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
