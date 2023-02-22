@@ -11,18 +11,18 @@ import Padder from '../Padder'
 import { useSettings } from '@/providers/SettingsProvider'
 
 const ListOfCards: FC<ListOfCardsProps> = ({ items, itemsPerPage=6, showFilters }) => {
-  const { pageCount, selectedPage, currentItems, handlePageClick, handleCategoryClick } = useListPagination({items, itemsPerPage})
+  const { pageCount, selectedPage, currentItems, handlePageClick, handleCategoryClick, selectedCategory } = useListPagination({items, itemsPerPage})
   const { ROUTES } = useSettings()
   
   return (
     <>
       {showFilters && <S.ButtonsWrapper>
         <S.ButtonWrapper>
-          <Button onClick={() => handleCategoryClick(undefined)} label='ALL' />
+          <Button active={!selectedCategory} onClick={() => handleCategoryClick(undefined)} label='ALL' />
         </S.ButtonWrapper>
         {ROUTES.map(({ label, slug, category}) => (
           <S.ButtonWrapper key={slug}>
-            <Button onClick={() => handleCategoryClick(category)} category={category} label={label.toUpperCase()} />
+            <Button active={selectedCategory === category} onClick={() => handleCategoryClick(category)} category={category} label={label.toUpperCase()} />
           </S.ButtonWrapper>
         ))}
       </S.ButtonsWrapper>}

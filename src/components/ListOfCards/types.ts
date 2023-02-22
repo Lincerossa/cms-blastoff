@@ -12,6 +12,7 @@ export type UseListPagination = (params: {items:ListOfCardsProps['items'], items
   pageCount: number
   selectedPage: number
   currentItems: ListOfCardsProps['items']
+  selectedCategory: SelectedCategory
   handlePageClick: (params:{selected: number}) => void
   handleCategoryClick: (params: SelectedCategory) => void
 }

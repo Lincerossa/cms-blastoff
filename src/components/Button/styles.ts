@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Button = styled.button<{category?: 'blog' | 'project'}>`
+export const Button = styled.button<{active?: boolean, category?: 'blog' | 'project'}>`
   display: flex;
   align-items: center;
   gap: 10px;
@@ -14,6 +14,10 @@ export const Button = styled.button<{category?: 'blog' | 'project'}>`
   white-space: pre;
   user-select: none;
   cursor: pointer;
+  ${(props) => props.active && `
+    background-color: ${props.category ? props.theme.colors.category[`${props.category}`] : props.theme.colors.primary};
+    color: ${props.theme.colors.dark};
+  `}
   &:hover {
     cursor: pointer;
     background-color: ${(props) => props.category ? props.theme.colors.category[`${props.category}`] : props.theme.colors.primary};

@@ -30,6 +30,7 @@ export const useListPagination: UseListPagination = ({items, itemsPerPage}) => {
     currentItems,
     handlePageClick,
     handleCategoryClick,
-    selectedPage
+    selectedPage,
+    selectedCategory
   }
 }
