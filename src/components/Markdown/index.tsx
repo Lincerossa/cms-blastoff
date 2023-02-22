@@ -5,22 +5,22 @@ import Wrapper from '../Wrapper'
 import Padder from '../Padder'
 
 const MarkdownComponents: object = {
-  p: (paragraph: { children?: boolean; node?: any}) => {
+  p: (paragraph: { children?: boolean; node?: any }) => {
     const { node } = paragraph
-  
-    if (node.children[0].tagName === "img") {
+
+    if (node.children[0].tagName === 'img') {
       const image = node.children[0]
       const metastring = image.properties.alt
-      const alt = metastring?.replace(/ *\{[^)]*\} */g, "")
+      const alt = metastring?.replace(/ *\{[^)]*\} */g, '')
       const metaWidth = metastring.match(/{([^}]+)x/)
       const metaHeight = metastring.match(/x([^}]+)}/)
-      const width = metaWidth ? metaWidth[1] : "768"
-      const height = metaHeight ? metaHeight[1] : "432"
+      const width = metaWidth ? metaWidth[1] : '768'
+      const height = metaHeight ? metaHeight[1] : '432'
       return (
-        <Padder size='small'>
-        <Wrapper>
-          <Image image={{src: image.properties.src, alt, height, width}} />
-        </Wrapper>
+        <Padder size="small">
+          <Wrapper>
+            <Image image={{ src: image.properties.src, alt, height, width }} />
+          </Wrapper>
         </Padder>
       )
     }
@@ -28,11 +28,8 @@ const MarkdownComponents: object = {
   },
 }
 
-
-const Markdown: FC<{children: string}> =  ({ children }) => (
-  <ReactMarkdown components={MarkdownComponents}>
-    {children}
-  </ReactMarkdown>
+const Markdown: FC<{ children: string }> = ({ children }) => (
+  <ReactMarkdown components={MarkdownComponents}>{children}</ReactMarkdown>
 )
 
 export default Markdown

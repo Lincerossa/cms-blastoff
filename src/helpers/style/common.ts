@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-export const Glitch = styled.div<{text: string}>`
+export const Glitch = styled.div<{ text: string }>`
   line-height: 1;
   font-family: 'Open Sans', sans-serif;
   font-weight: 700;
@@ -12,19 +12,19 @@ export const Glitch = styled.div<{text: string}>`
   text-decoration: none;
   color: #fff;
   &:before,
-  &:after{
+  &:after {
     display: block;
-    content: "${(props) => props.text}";
+    content: '${(props) => props.text}';
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
-    opacity: .8;
+    opacity: 0.8;
   }
   &:after {
     color: #0ff;
-    
+
     z-index: -2;
   }
   &:before {
@@ -34,39 +34,41 @@ export const Glitch = styled.div<{text: string}>`
   }
   &:hover {
     &:before {
-      animation: glitch-left .6s cubic-bezier(.25, .46, .45, .94) both infinite
+      animation: glitch-left 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both
+        infinite;
     }
     &:after {
-      animation: glitch-left-2 .6s cubic-bezier(.25, .46, .45, .94) reverse both infinite
+      animation: glitch-left-2 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse
+        both infinite;
     }
   }
-  
+
   @keyframes glitch-left {
-      0% {
-          transform: translate(0)
-      }
-      33% {
-          transform: translate(-5px, 3px)
-      }
-      66% {
-          transform: translate(5px, -3px)
-      }
-      to {
-          transform: translate(0)
-      }
+    0% {
+      transform: translate(0);
+    }
+    33% {
+      transform: translate(-5px, 3px);
+    }
+    66% {
+      transform: translate(5px, -3px);
+    }
+    to {
+      transform: translate(0);
+    }
   }
   @keyframes glitch-left-2 {
-      0% {
-          transform: translate(0)
-      }
-      33% {
-          transform: translate(-5px, -3px)
-      }
-      66% {
-          transform: translate(5px, 2px)
-      }
-      to {
-          transform: translate(0)
-      }
+    0% {
+      transform: translate(0);
+    }
+    33% {
+      transform: translate(-5px, -3px);
+    }
+    66% {
+      transform: translate(5px, 2px);
+    }
+    to {
+      transform: translate(0);
+    }
   }
-`;
+`

@@ -7,11 +7,9 @@ export const List = styled.div<ListStyle>`
   width: 100%;
   display: grid;
   grid-gap: 2rem;
-  @media (min-width: 768px){
+  @media (min-width: 768px) {
     grid-template-columns: ${(props) => `repeat(${props.columns}, 1fr)`};
   }
 `
 
-export const ListItem = styled.div`
-
-`
+export const ListItem = styled.div``

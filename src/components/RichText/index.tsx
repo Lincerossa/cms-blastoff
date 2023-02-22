@@ -5,11 +5,7 @@ import { RichTextProps } from './types'
 
 const RichText: FC<RichTextProps> = ({ text, children }) => {
   if (text) {
-    return (
-      <S.RichText
-        dangerouslySetInnerHTML={{ __html: text }}
-      />
-    )
+    return <S.RichText dangerouslySetInnerHTML={{ __html: text }} />
   }
 
   if (children) return <S.RichText>{children}</S.RichText>

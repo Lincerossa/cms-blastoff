@@ -10,29 +10,47 @@ import { ListOfCardsProps } from './types'
 import Padder from '../Padder'
 import { useSettings } from '@/providers/SettingsProvider'
 
-const ListOfCards: FC<ListOfCardsProps> = ({ items, itemsPerPage=6, showFilters }) => {
-  const { pageCount, selectedPage, currentItems, handlePageClick, handleCategoryClick, selectedCategory } = useListPagination({items, itemsPerPage})
+const ListOfCards: FC<ListOfCardsProps> = ({
+  items,
+  itemsPerPage = 6,
+  showFilters,
+}) => {
+  const {
+    pageCount,
+    selectedPage,
+    currentItems,
+    handlePageClick,
+    handleCategoryClick,
+    selectedCategory,
+  } = useListPagination({ items, itemsPerPage })
   const { ROUTES } = useSettings()
-  
+
   return (
     <>
-      {showFilters && <S.ButtonsWrapper>
-        {ROUTES.map(({ label, slug, category}) => (
-          <S.ButtonWrapper key={slug}>
-            <Button active={selectedCategory === category} onClick={() => handleCategoryClick(category)} category={category} label={label.toUpperCase()} />
-          </S.ButtonWrapper>
-        ))}
-      </S.ButtonsWrapper>}
+      {showFilters && (
+        <S.ButtonsWrapper>
+          {ROUTES.map(({ label, slug, category }) => (
+            <S.ButtonWrapper key={slug}>
+              <Button
+                active={selectedCategory === category}
+                onClick={() => handleCategoryClick(category)}
+                category={category}
+                label={label.toUpperCase()}
+              />
+            </S.ButtonWrapper>
+          ))}
+        </S.ButtonsWrapper>
+      )}
       <List columns={3}>
         {currentItems.map(({ slug, ...item }) => (
           <Link key={slug} href={`/${slug}`}>
-              <S.ListItem>
-                <Card {...item} />
-              </S.ListItem>
+            <S.ListItem>
+              <Card {...item} />
+            </S.ListItem>
           </Link>
         ))}
       </List>
-      <Padder size='small'>
+      <Padder size="small">
         <S.Pagination>
           <ReactPaginate
             breakLabel="..."

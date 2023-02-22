@@ -2,15 +2,14 @@ import styled from 'styled-components'
 
 export const ImageWrapper = styled.div`
   img {
-    transition: all .25s;
+    transition: all 0.25s;
     display: block;
     width: 100%;
     height: 100%;
     max-width: 100%;
     max-height: 100%;
-    position:relative;
+    position: relative;
   }
-
 `
 
 export const Shadow = styled.div`
@@ -18,15 +17,14 @@ export const Shadow = styled.div`
   bottom: 0;
   right: 0;
   left: 0;
-  background-image: linear-gradient(transparent, rgb(0,0,0,.7));
+  background-image: linear-gradient(transparent, rgb(0, 0, 0, 0.7));
   top: 0;
   z-index: 1;
-
 `
 export const Description = styled.div`
   color: ${(props) => props.theme.colors.primary};
   font-style: oblique;
-  font-size: .75rem;
+  font-size: 0.75rem;
   font-weight: 300;
-  padding: .5rem 0;
+  padding: 0.5rem 0;
 `

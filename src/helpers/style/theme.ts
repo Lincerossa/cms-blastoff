@@ -9,8 +9,8 @@ const theme = {
     softGrey: '#283c49',
     category: {
       blog: '#edad68',
-      project: '#c76358'
-    }
+      project: '#c76358',
+    },
   },
 }
 

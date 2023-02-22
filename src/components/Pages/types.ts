@@ -1,4 +1,4 @@
-import { ListOfCardsProps } from "../ListOfCards/types"
+import { ListOfCardsProps } from '../ListOfCards/types'
 
 export type CategoryPageProps = {
   items: ListOfCardsProps['items']
@@ -6,7 +6,7 @@ export type CategoryPageProps = {
 }
 
 export type HomePageProps = {
-  items:  ListOfCardsProps['items']
+  items: ListOfCardsProps['items']
 }
 
 export type PostPageProps = {
@@ -19,4 +19,3 @@ export type PostPageProps = {
   category: 'blog' | 'project'
   tags: string[]
 }
-
