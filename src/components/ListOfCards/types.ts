@@ -2,7 +2,7 @@ import { CardProps } from '../Card/types'
 
 export type ListOfCardsProps = {
   itemsPerPage?: number
-  showFilters: boolean
+  showFilters?: boolean
   items: Array<CardProps & {slug: string}>
 }
 
