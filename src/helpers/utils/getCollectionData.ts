@@ -2,7 +2,6 @@ import { ListOfCardsProps } from '@/components/ListOfCards/types'
 import fs from 'fs'
 import matter from 'gray-matter'
 import { PostFile } from '../types'
-import formatFile from './formatFile'
 import getFormattedDate from './getFormattedDate'
 
 type GetCollectionData = (e: {collection: 'blog' | 'project'}) => {
@@ -12,33 +11,26 @@ type GetCollectionData = (e: {collection: 'blog' | 'project'}) => {
 
 const getCollectionData: GetCollectionData = ({collection}) => {
   const filesInProjects = fs.readdirSync(`./public/posts/${collection}/`)
-  const formattedFiles = filesInProjects.map(fileName => {
-    const { data, content }: PostFile = matter(fs.readFileSync(`./public/posts/${collection}/${fileName}`, 'utf8'))
-    return formatFile({
-      ...data,
-      content,
-      slug: fileName.replace('.md', '')
-    })
-  })
-
-  const items = formattedFiles.map(({thumbnail, date, title, tags, subtitle, slug }) => ({
-    image: {
-      alt: '',
-      src: thumbnail,
-      width: 400,
-      height: 500,
-    },
-    date,
-    formattedDate: getFormattedDate(new Date(date)),
-    title,
-    tags: tags?.map(tag => tag?.name) ?? [],
-    subtitle,
-    category: collection,
-    slug: `${collection}/${slug.replace('.md', '')}`
-  }))
 
   return {
-    items,
+    items: filesInProjects.map(fileName => {
+      const { data }: PostFile = matter(fs.readFileSync(`./public/posts/${collection}/${fileName}`, 'utf8'))
+      return {
+        image: {
+          alt: '',
+          src: data.thumbnail ?? '',
+          width: 400,
+          height: 500,
+        },
+        date: `${new Date(data?.date ?? '') ?? ''}`,
+        formattedDate: getFormattedDate(new Date(data?.date ?? '')),
+        title: data.title ?? '',
+        tags: data.tags?.map(tag => tag?.name) ?? [],
+        subtitle: data.subtitle ?? '',
+        category: collection,
+        slug: `${collection}/${fileName.replace('.md', '')}`
+      }
+    }),
     category: collection
   }
 }
