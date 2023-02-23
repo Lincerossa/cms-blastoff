@@ -7,36 +7,37 @@ export const Card = styled.div`
   position: relative;
   border-radius: 6px;
   overflow: hidden;
-  transition: .2s all;
+  transition: 0.2s all;
   &:hover {
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   }
 `
 
 export const ImageWrapper = styled.div`
   position: relative;
   overflow: hidden;
-  :before{
-    content: "";
+  :before {
+    content: '';
     position: absolute;
-    background: linear-gradient(to top,rgba(0,0,0,.75),transparent);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
     bottom: 0;
     right: 0;
     left: 0;
     top: 0;
     z-index: 1;
-    background: linear-gradient(to top,rgba(0,0,0,.75),transparent);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
   }
   padding-top: 100%;
   img {
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     object-fit: cover;
   }
-
 `
 export const Media = styled.img`
   position: absolute;
@@ -51,13 +52,13 @@ export const Title = styled.div`
   font-size: 1.25rem;
   font-weight: 600;
   line-height: 1;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   color: white;
   letter-spacing: 0.06rem;
 `
 
 export const Subtitle = styled.div`
-  font-size: .75rem;
+  font-size: 0.75rem;
   color: ${(props) => props.theme.colors.grey};
   font-weight: 100;
 `
@@ -75,46 +76,43 @@ export const Description = styled.div`
 export const TagsWrapper = styled.div`
   display: flex;
   margin-bottom: 1rem;
-  letter-spacing: .04em;
-  
+  letter-spacing: 0.04em;
 `
-export const Tag = styled.div<{isLast: boolean}>`
+export const Tag = styled.div<{ isLast: boolean }>`
   border-radius: 4px;
   color: white;
-  font-size: .6rem;
+  font-size: 0.6rem;
   font-weight: 600;
   font-family: sans-serif;
   position: relative;
   margin-right: 1rem;
   text-transform: uppercase;
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     top: 45%;
-    transform: translate(0,-50%);
+    transform: translate(0, -50%);
     border-radius: 50%;
-    display: ${props => props.isLast ? 'none' : 'block'};
-    right: -.7rem;
-    width: .4rem;
-    height: .4rem;
+    display: ${(props) => (props.isLast ? 'none' : 'block')};
+    right: -0.7rem;
+    width: 0.4rem;
+    height: 0.4rem;
     background: ${(props) => props.theme.colors.primary};
   }
 `
 
 export const Info = styled.div`
   display: grid;
-  font-size: .75rem;
-  letter-spacing: .04em;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
   font-weight: 100;
   display: flex;
   align-items: center;
-  margin-bottom: .5rem;
-
+  margin-bottom: 0.5rem;
 `
-export const Category = styled.div<{category: 'blog' | 'project'}>`
+export const Category = styled.div<{ category: 'blog' | 'project' }>`
   color: ${(props) => props.theme.colors.category[`${props.category}`]};
   font-weight: 600;
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 `
-export const Date = styled.div`
-`
+export const Date = styled.div``

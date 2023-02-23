@@ -2,40 +2,40 @@ backend:
   name: git-gateway
   branch: main
 publish_mode: editorial_workflow
-media_folder: "public/images/uploads"
+media_folder: 'public/images/uploads'
 local_backend: true
 collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "public/posts/blog"
+  - name: 'blog'
+    label: 'Blog'
+    folder: 'public/posts/blog'
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Subtitle", name: "subtitle", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Featured Image", name: "thumbnail", widget: "image"}
-      - label: "Tags"
-        name: "tags"
-        widget: "list"
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Subtitle', name: 'subtitle', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Featured Image', name: 'thumbnail', widget: 'image' }
+      - label: 'Tags'
+        name: 'tags'
+        widget: 'list'
         summary: '{{fields.name}}'
-        fields: 
-          - {label: Name, name: name, widget: string}
-      - {label: "Body", name: "body", widget: "markdown"}
-  - name: "projects"
-    label: "Projects"
-    folder: "public/posts/project"
+        fields:
+          - { label: Name, name: name, widget: string }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+  - name: 'projects'
+    label: 'Projects'
+    folder: 'public/posts/project'
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Subtitle", name: "subtitle", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Featured Image", name: "thumbnail", widget: "image"}
-      - label: "Tags"
-        name: "tags"
-        widget: "list"
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Subtitle', name: 'subtitle', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Featured Image', name: 'thumbnail', widget: 'image' }
+      - label: 'Tags'
+        name: 'tags'
+        widget: 'list'
         summary: '{{fields.name}}'
-        fields: 
-          - {label: Name, name: name, widget: string}
-      - {label: "Body", name: "body", widget: "markdown"}
+        fields:
+          - { label: Name, name: name, widget: string }
+      - { label: 'Body', name: 'body', widget: 'markdown' }

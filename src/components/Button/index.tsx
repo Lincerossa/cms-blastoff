@@ -3,19 +3,22 @@ import * as S from './styles'
 
 type ButtonProps = {
   onClick: () => void
-  label:string
+  label: string
   category?: 'blog' | 'project'
   active?: boolean
 }
 
-const Button: FC<ButtonProps> = ({label, onClick, category, active}) => {
-
+const Button: FC<ButtonProps> = ({ label, onClick, category, active }) => {
   const buttonHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    onClick();
-  };
+    event.preventDefault()
+    onClick()
+  }
 
-  return <S.Button onClick={buttonHandler} active={active} category={category}>{label}</S.Button>
+  return (
+    <S.Button onClick={buttonHandler} active={active} category={category}>
+      {label}
+    </S.Button>
+  )
 }
 
 export default Button

@@ -11,15 +11,22 @@ import Pointer from './Pointer'
 import { useSettings } from '@/providers/SettingsProvider'
 
 const Layout: FC<PropsWithChildren> = ({ children }) => {
-  const [{ initial, direction }, setScrollStatus] = useState<{position: number, initial:boolean, direction: 'up' | 'down'}>({ position: 0, initial: true, direction: 'up' })
+  const [{ initial, direction }, setScrollStatus] = useState<{
+    position: number
+    initial: boolean
+    direction: 'up' | 'down'
+  }>({ position: 0, initial: true, direction: 'up' })
   const [isMenuOpen, setMenuOpen] = useState<boolean>(false)
   const { ROUTES } = useSettings()
-  const  { asPath, events } = useRouter()
+  const { asPath, events } = useRouter()
   function handleGetDirection() {
     setScrollStatus((prevState) => ({
       position: window.scrollY,
       initial: window.scrollY < 250,
-      direction: (window.scrollY > prevState.position) && (window.scrollY > 600) ? 'down' : 'up',
+      direction:
+        window.scrollY > prevState.position && window.scrollY > 600
+          ? 'down'
+          : 'up',
     }))
   }
 
@@ -33,7 +40,8 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      window.document.getElementsByTagName('html')[0].style.overflowY = isMenuOpen ? 'hidden' : 'visible'
+      window.document.getElementsByTagName('html')[0].style.overflowY =
+        isMenuOpen ? 'hidden' : 'visible'
     }
   }, [isMenuOpen])
 
@@ -49,22 +57,29 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
             </Link>
             <S.Menu isMenuOpen={isMenuOpen}>
               <S.MenuItems>
-                {
-                ROUTES?.filter((e) => !e.hidden).map((e) => (
-                  <S.MenuItem key={e.slug} isActive={e.slug === asPath} direction={direction} isMenuOpen={isMenuOpen} initial={initial}>
+                {ROUTES?.filter((e) => !e.hidden).map((e) => (
+                  <S.MenuItem
+                    key={e.slug}
+                    isActive={e.slug === asPath}
+                    direction={direction}
+                    isMenuOpen={isMenuOpen}
+                    initial={initial}
+                  >
                     <Link href={e.href} as={e.slug}>
                       {e.label}
                     </Link>
                   </S.MenuItem>
-                ))
-              }
+                ))}
               </S.MenuItems>
             </S.Menu>
 
-            <S.Hamburger isMenuOpen={isMenuOpen} initial={initial} onClick={() => setMenuOpen(!isMenuOpen)}>
-              { isMenuOpen ? <Close /> : <Hamburger />}
+            <S.Hamburger
+              isMenuOpen={isMenuOpen}
+              initial={initial}
+              onClick={() => setMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <Close /> : <Hamburger />}
             </S.Hamburger>
-
           </S.HeaderInner>
         </Wrapper>
       </S.Header>
@@ -79,9 +94,27 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
               </S.Logo>
             </Link>
             <S.ExternalLinks>
-              <S.ExternalLink href="https://github.com/Lincerossa" target="_blank" rel="noreferrer">Github</S.ExternalLink>
-              <S.ExternalLink href="https://twitter.com/cav_lince" target="_blank" rel="noreferrer">Twitter</S.ExternalLink>
-              <S.ExternalLink href="https://www.linkedin.com/in/marcello-luatti/" target="_blank" rel="noreferrer">Linkedin</S.ExternalLink>
+              <S.ExternalLink
+                href="https://github.com/Lincerossa"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Github
+              </S.ExternalLink>
+              <S.ExternalLink
+                href="https://twitter.com/cav_lince"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Twitter
+              </S.ExternalLink>
+              <S.ExternalLink
+                href="https://www.linkedin.com/in/marcello-luatti/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Linkedin
+              </S.ExternalLink>
             </S.ExternalLinks>
           </S.FooterInner>
         </Wrapper>

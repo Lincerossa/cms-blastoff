@@ -9,7 +9,7 @@ type StyleProps = Partial<{
 
 export const Main = styled.main`
   min-height: 100vh;
-`;
+`
 
 export const MainLabel = styled.div`
   height: 60vh;
@@ -17,11 +17,11 @@ export const MainLabel = styled.div`
   display: flex;
   align-items: center;
   font-size: 5rem;
-  @media (min-width: 978px){
+  @media (min-width: 978px) {
     font-size: 15rem;
     height: 100vh;
   }
-`;
+`
 
 export const Header = styled.div<StyleProps>`
   position: fixed;
@@ -30,20 +30,23 @@ export const Header = styled.div<StyleProps>`
   left: 0;
   z-index: 3;
   display: flex;
-  transition: .2s  all;
+  transition: 0.2s all;
   transition-timing-function: ease-in;
   justify-content: space-between;
   background: ${(props) => (props.initial ? 'transparent' : '#273c49')};
-  box-shadow: ${(props) => (props.initial ? 'none' : '0px 2px 8px rgba(0,0,0,0.15)')};
-  ${(props) => (props.direction === 'down' && !props.isMenuOpen
-    ? 'transform: translate(0,-100%);'
-    : 'transform: translate(0,0%);')
-}
-  ${(props) => props.isMenuOpen && `
+  box-shadow: ${(props) =>
+    props.initial ? 'none' : '0px 2px 8px rgba(0,0,0,0.15)'};
+  ${(props) =>
+    props.direction === 'down' && !props.isMenuOpen
+      ? 'transform: translate(0,-100%);'
+      : 'transform: translate(0,0%);'}
+  ${(props) =>
+    props.isMenuOpen &&
+    `
     bottom: 0;
   `}
 
-  @media (min-width: 768px){
+  @media (min-width: 768px) {
     bottom: auto;
   }
 `
@@ -55,7 +58,9 @@ export const HeaderInner = styled.div`
 `
 
 export const Menu = styled.div<StyleProps>`
-  display: ${(props) => (props.isMenuOpen ? `
+  display: ${(props) =>
+    props.isMenuOpen
+      ? `
     display: block;
     position: fixed;
     top: 0;
@@ -63,9 +68,10 @@ export const Menu = styled.div<StyleProps>`
     left: 0;
     right: 0;
     background: ${props.theme.colors.dark};
-  ` : 'none')};
+  `
+      : 'none'};
 
-  @media (min-width: 768px){
+  @media (min-width: 768px) {
     display: block;
     position: relative;
   }
@@ -76,9 +82,9 @@ export const MenuItems = styled.div`
   position: absolute;
   left: 50%;
   top: 20vh;
-  transform: translate(-50%,0);
+  transform: translate(-50%, 0);
 
-  @media (min-width: 768px){
+  @media (min-width: 768px) {
     padding-left: 1rem;
     display: flex;
     align-items: center;
@@ -93,35 +99,35 @@ export const MenuItem = styled.div<StyleProps>`
   text-transform: uppercase;
   font-weight: 400;
   line-height: 1;
-  letter-spacing: .1rem;
+  letter-spacing: 0.1rem;
   font-size: 1rem;
   position: relative;
   margin-bottom: 1.5rem;
 
-  @media (min-width: 768px){
+  @media (min-width: 768px) {
     margin-bottom: 0;
     font-size: 1rem;
     margin-right: 2rem;
   }
 
-  
   a {
     color: white !important;
-    &:hover{
+    &:hover {
       color: ${(props) => props.theme.colors.primary} !important;
     }
   }
-  ${(props) => props.isActive && `
+  ${(props) =>
+    props.isActive &&
+    `
 
     a {
       color: ${props.theme.colors.primary} !important;
     }
   `};
 
-  &:last-of-type{
+  &:last-of-type {
     margin: 0;
   }
-
 `
 
 export const Hamburger = styled.div<StyleProps>`
@@ -129,7 +135,7 @@ export const Hamburger = styled.div<StyleProps>`
   top: 0.75rem;
   right: 1rem;
   width: 25px;
-  @media (min-width: 768px){
+  @media (min-width: 768px) {
     display: none;
   }
   svg {
@@ -167,19 +173,19 @@ export const ExternalLink = styled.a`
 `
 
 export const MouseTracker = styled.div`
-  @media (min-width: 768px){
+  @media (min-width: 768px) {
     position: absolute;
     border: 2px solid ${(props) => props.theme.colors.primary};
     height: 20px;
     border-radius: 50%;
     pointer-events: none;
     width: 20px;
-    transform: translate(-50%,-50%);
-  }  
+    transform: translate(-50%, -50%);
+  }
 `
 
 export const MousePoint = styled.div`
-  @media (min-width: 768px){
+  @media (min-width: 768px) {
     position: fixed;
     background-color: ${(props) => props.theme.colors.primary};
     height: 10px;
@@ -187,29 +193,27 @@ export const MousePoint = styled.div`
     border-radius: 50%;
     pointer-events: none;
     z-index: 3;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
   }
 `
-
-
 
 export const Logo = styled.div<StyleProps>`
   width: 60px;
   font-size: 2rem;
   display: flex;
 
-  @media (min-width: 768px){
+  @media (min-width: 768px) {
     width: 90px;
   }
   svg {
     width: 100%;
     height: 100%;
     fill: white !important;
-    transition: .2s  all;
+    transition: 0.2s all;
   }
   &:hover {
-    svg{
-      fill: ${(props) => props.theme.colors.primary}  !important;
+    svg {
+      fill: ${(props) => props.theme.colors.primary} !important;
     }
   }
 `
