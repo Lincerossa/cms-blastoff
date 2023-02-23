@@ -10,19 +10,24 @@ export const PostHero = styled.div`
   }
 `
 
-export const Media = styled.img`
-  border: 3px solid ${(props) => props.theme.colors.lightGrey};
-  display: block;
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 16px;
-  object-position: center center;
+export const ImageWrapper = styled.div`
   margin-bottom: 2rem;
+  width: 100%;
   @media (min-width: 768px) {
     width: 50%;
-    height: 400px;
     margin-bottom: 0;
+  }
+  img {
+    height: 250px;
+    border: 3px solid ${(props) => props.theme.colors.lightGrey};
+    overflow: hidden;
+    border-radius: 16px;
+    display: block;
+    object-fit: cover;
+    object-position: center center;
+    @media (min-width: 768px) {
+      height: 400px;
+    }
   }
 `
 

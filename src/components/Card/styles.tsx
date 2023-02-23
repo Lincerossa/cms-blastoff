@@ -27,7 +27,6 @@ export const ImageWrapper = styled.div`
     left: 0;
     top: 0;
     z-index: 1;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
   }
   padding-top: 100%;
   img {

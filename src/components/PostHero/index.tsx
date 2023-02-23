@@ -4,6 +4,7 @@ import { PostHeroProps } from './types'
 import Button from '../Button'
 import { useRouter } from 'next/router'
 import Tags from '../Tags'
+import Image from '../Image'
 
 const PostHero: FC<PostHeroProps> = ({
   thumbnail,
@@ -25,7 +26,16 @@ const PostHero: FC<PostHeroProps> = ({
         <Button label="Back" onClick={handleBack} />
       </S.ButtonWrapper>
       <S.PostHero>
-        <S.Media src={thumbnail} />
+        <S.ImageWrapper>
+          <Image
+            image={{
+              src: thumbnail,
+              alt: thumbnail,
+              width: 300,
+              height: 300,
+            }}
+          />
+        </S.ImageWrapper>
         <S.Content>
           <S.Info>
             <S.Category category={category}>

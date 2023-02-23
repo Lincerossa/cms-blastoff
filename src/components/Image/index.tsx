@@ -4,17 +4,20 @@ import Image from 'next/image'
 import * as S from './styles'
 import { ImageProps } from './types'
 
-const CustomImage: FC<ImageProps> = ({ image, hasShadow }) => (
-  <S.ImageWrapper>
-    <Image
-      src={image.src.replace('/public', '')}
-      alt={image.alt}
-      width={image?.width}
-      height={image?.height}
-    />
-    {hasShadow && <S.Shadow />}
-    {image?.description && <S.Description>{image.description}</S.Description>}
-  </S.ImageWrapper>
-)
+const CustomImage: FC<ImageProps> = ({ image, hasShadow }) => {
+  const { src, alt, width, height, description } = image
+  return (
+    <S.ImageWrapper>
+      <Image
+        src={src.replace('/public', '')}
+        alt={alt}
+        width={width}
+        height={height}
+      />
+      {hasShadow && <S.Shadow />}
+      {description && <S.Description>{description}</S.Description>}
+    </S.ImageWrapper>
+  )
+}
 
 export default CustomImage

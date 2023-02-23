@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown'
 import Image from '../Image'
 import Wrapper from '../Wrapper'
 import Padder from '../Padder'
+import * as S from './styles'
 
 const MarkdownComponents: object = {
   p: (paragraph: { children?: boolean; node?: any }) => {
@@ -17,11 +18,15 @@ const MarkdownComponents: object = {
       const width = metaWidth ? metaWidth[1] : '768'
       const height = metaHeight ? metaHeight[1] : '432'
       return (
-        <Padder size="small">
-          <Wrapper>
-            <Image image={{ src: image.properties.src, alt, height, width }} />
-          </Wrapper>
-        </Padder>
+        <Wrapper hasPadding={false}>
+          <Padder size="small">
+            <S.ImageWrapper>
+              <Image
+                image={{ src: image.properties.src, alt, height, width }}
+              />
+            </S.ImageWrapper>
+          </Padder>
+        </Wrapper>
       )
     }
     return <p>{paragraph.children}</p>
