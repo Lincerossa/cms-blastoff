@@ -4,9 +4,10 @@ import theme from './theme'
 export default createGlobalStyle`
   html, body {
     height: auto;
-    font-size: 1rem;
+    font-size: 16px;
     color: black;
     margin: 0;
+    -webkit-font-smoothing: antialiased;
   }
   strong {
     font-weight: 600;
@@ -14,12 +15,12 @@ export default createGlobalStyle`
   h1, h2, h3, h4 {
     margin-top: 0;
     font-weight: 500;
-    color: ${theme.colors.primary};
+    color: ${theme.colors.secondary};
     position: relative;
     &:before {
       content:"";
       width: 3rem;
-      border-bottom: 2px solid ${theme.colors.primary};
+      border-bottom: 2px solid ${theme.colors.secondary};
       position: absolute;
       left: 0;
       bottom: 0;
@@ -44,7 +45,7 @@ export default createGlobalStyle`
     }
   }
   p, span {
-    font-weight: 400;
+    font-weight: 300;
     font-size: 1.25rem;
     line-height: 1.75;
   }

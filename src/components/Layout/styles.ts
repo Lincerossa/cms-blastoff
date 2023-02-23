@@ -1,11 +1,9 @@
 import styled from 'styled-components'
+import { ScrollStatus } from './types'
 
-type StyleProps = Partial<{
-  initial: boolean
-  isMenuOpen: boolean
-  isActive: boolean
+type StyleProps = Partial<ScrollStatus> & {
   direction: 'down' | 'up'
-}>
+}
 
 export const Main = styled.main`
   min-height: 100vh;

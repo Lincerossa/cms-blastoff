@@ -19,7 +19,7 @@ const PostPage: FC<PostPageProps> = ({
 }) => {
   return (
     <>
-      <Background color="white" background={theme.colors.dark}>
+      <Background background={theme.colors.dark}>
         <Padder size="large">
           <Wrapper size="large">
             <Padder size="large">
@@ -35,10 +35,13 @@ const PostPage: FC<PostPageProps> = ({
           </Wrapper>
         </Padder>
       </Background>
-      <Background color="white" background={theme.colors.darkLight}>
+      <Background background={theme.colors.darkLight}>
         <Border />
       </Background>
-      <Background color="white" background={theme.colors.darkLight}>
+      <Background
+        color={theme.colors.light}
+        background={theme.colors.darkLight}
+      >
         <Wrapper size="large">
           <Padder size="large">
             <Markdown>{content}</Markdown>

@@ -3,6 +3,7 @@ import * as S from './styles'
 import { PostHeroProps } from './types'
 import Button from '../Button'
 import { useRouter } from 'next/router'
+import Tags from '../Tags'
 
 const PostHero: FC<PostHeroProps> = ({
   thumbnail,
@@ -33,15 +34,7 @@ const PostHero: FC<PostHeroProps> = ({
             <S.Date>{date}</S.Date>
           </S.Info>
           <S.Title>{title}</S.Title>
-          {tags?.length > 0 && (
-            <S.TagsWrapper>
-              {tags?.map((tag, i) => (
-                <S.Tag isLast={i === tags.length - 1} key={tag}>
-                  {tag}
-                </S.Tag>
-              ))}
-            </S.TagsWrapper>
-          )}
+          <Tags items={tags} />
           <S.Subtitle>{subtitle}</S.Subtitle>
         </S.Content>
       </S.PostHero>

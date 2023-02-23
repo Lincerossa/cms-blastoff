@@ -1,4 +1,4 @@
-import { Image } from '../../helpers/types'
+import { Category, Image } from '../../helpers/types'
 
 export type CardProps = {
   image: Image
@@ -7,5 +7,5 @@ export type CardProps = {
   date: string
   formattedDate: string
   tags: string[]
-  category: 'blog' | 'project'
+  category: Category
 }

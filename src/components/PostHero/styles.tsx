@@ -29,7 +29,6 @@ export const Media = styled.img<{ category: 'blog' | 'project' }>`
 
 export const Content = styled.div`
   width: 100%;
-
   @media (min-width: 768px) {
     width: 50%;
   }
@@ -60,6 +59,7 @@ export const Category = styled.div<{ category: 'blog' | 'project' }>`
 `
 export const Date = styled.div`
   font-size: 1rem;
+  color: white;
 `
 
 export const Title = styled.div`
@@ -76,37 +76,9 @@ export const Title = styled.div`
 
 export const Subtitle = styled.div`
   color: ${(props) => props.theme.colors.grey};
-  font-weight: 100;
-  font-size: 0.75rem;
+  font-weight: 400;
+  font-size: 0.875rem;
   @media (min-width: 768px) {
     font-size: 1rem;
-  }
-`
-
-export const TagsWrapper = styled.div`
-  display: flex;
-  margin-bottom: 1rem;
-  letter-spacing: 0.04em;
-`
-export const Tag = styled.div<{ isLast: boolean }>`
-  border-radius: 4px;
-  color: white;
-  font-size: 0.6rem;
-  font-weight: 600;
-  font-family: sans-serif;
-  position: relative;
-  margin-right: 1rem;
-  text-transform: uppercase;
-  &:after {
-    content: '';
-    position: absolute;
-    top: 45%;
-    transform: translate(0, -50%);
-    border-radius: 50%;
-    display: ${(props) => (props.isLast ? 'none' : 'block')};
-    right: -0.7rem;
-    width: 0.4rem;
-    height: 0.4rem;
-    background: ${(props) => props.theme.colors.primary};
   }
 `

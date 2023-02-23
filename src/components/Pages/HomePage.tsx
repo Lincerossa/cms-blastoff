@@ -21,7 +21,7 @@ const HomePage: FC<HomePageProps> = ({ items }) => {
           </Padder>
         </Wrapper>
       </Background>
-      <Background background={theme.colors.dark} color="white">
+      <Background background={theme.colors.dark} color={theme.colors.light}>
         <Wrapper size="large">
           <Padder size="large">
             <RichText>

@@ -1,12 +1,7 @@
 import { Glitch } from '@/helpers/style/common'
 import { FC } from 'react'
 import * as S from './styles'
-import Background from '../Background'
-import theme from '@/helpers/style/theme'
-
-type MainLabelProps = {
-  text: string
-}
+import { MainLabelProps } from './types'
 
 const MainLabel: FC<MainLabelProps> = ({ text }) => {
   return (
