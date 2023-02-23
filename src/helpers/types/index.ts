@@ -13,7 +13,7 @@ export type Post = {
   slug: string
   date: string
   formattedDate?: string
-  category: 'blog' | 'project'
+  category: Category
   content: string
 }
 
@@ -34,7 +34,7 @@ export type SettingsProps = {
     slug: string
     href: string
     label: string
-    category?: 'blog' | 'project'
+    category?: Category
   }>
   DATA: {
     HOME: {
@@ -42,3 +42,5 @@ export type SettingsProps = {
     }
   }
 }
+
+export type Category = 'blog' | 'project'

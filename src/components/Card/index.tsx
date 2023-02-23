@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import Image from '../Image'
+import Tags from '../Tags'
 import * as S from './styles'
 import { CardProps } from './types'
 
@@ -15,7 +16,6 @@ const Card: FC<CardProps> = ({
     <S.ImageWrapper>
       <Image image={image} />
     </S.ImageWrapper>
-
     <S.Description>
       <S.Info>
         <S.Category category={category}>
@@ -24,15 +24,7 @@ const Card: FC<CardProps> = ({
         <S.Date>{formattedDate}</S.Date>
       </S.Info>
       <S.Title>{title}</S.Title>
-      {tags?.length > 0 && (
-        <S.TagsWrapper>
-          {tags?.map((tag, i) => (
-            <S.Tag isLast={i === tags.length - 1} key={tag}>
-              {tag}
-            </S.Tag>
-          ))}
-        </S.TagsWrapper>
-      )}
+      <Tags items={tags} />
       {subtitle && <S.Subtitle>{subtitle}</S.Subtitle>}
     </S.Description>
   </S.Card>

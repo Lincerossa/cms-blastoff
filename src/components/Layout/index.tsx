@@ -9,13 +9,14 @@ import Wrapper from '../Wrapper'
 import * as S from './styles'
 import Pointer from './Pointer'
 import { useSettings } from '@/providers/SettingsProvider'
+import { ScrollStatus } from './types'
 
 const Layout: FC<PropsWithChildren> = ({ children }) => {
-  const [{ initial, direction }, setScrollStatus] = useState<{
-    position: number
-    initial: boolean
-    direction: 'up' | 'down'
-  }>({ position: 0, initial: true, direction: 'up' })
+  const [{ initial, direction }, setScrollStatus] = useState<ScrollStatus>({
+    position: 0,
+    initial: true,
+    direction: 'up',
+  })
   const [isMenuOpen, setMenuOpen] = useState<boolean>(false)
   const { ROUTES } = useSettings()
   const { asPath, events } = useRouter()
