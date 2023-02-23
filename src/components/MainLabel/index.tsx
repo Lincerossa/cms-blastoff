@@ -1,4 +1,3 @@
-import { Glitch } from '@/helpers/style/common'
 import { FC } from 'react'
 import * as S from './styles'
 import { MainLabelProps } from './types'
@@ -6,7 +5,7 @@ import { MainLabelProps } from './types'
 const MainLabel: FC<MainLabelProps> = ({ text }) => {
   return (
     <S.Wrapper>
-      <Glitch text={text}>{text}</Glitch>
+      <S.Glitch text={text}>{text}</S.Glitch>
     </S.Wrapper>
   )
 }
