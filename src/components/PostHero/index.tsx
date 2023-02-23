@@ -25,7 +25,7 @@ const PostHero: FC<PostHeroProps> = ({
         <Button label="Back" onClick={handleBack} />
       </S.ButtonWrapper>
       <S.PostHero>
-        <S.Media src={thumbnail} category={category} />
+        <S.Media src={thumbnail} />
         <S.Content>
           <S.Info>
             <S.Category category={category}>

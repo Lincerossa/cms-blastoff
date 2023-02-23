@@ -10,9 +10,8 @@ export const PostHero = styled.div`
   }
 `
 
-export const Media = styled.img<{ category: 'blog' | 'project' }>`
-  border: 2px solid
-    ${(props) => props.theme.colors.category[`${props.category}`]};
+export const Media = styled.img`
+  border: 3px solid ${(props) => props.theme.colors.lightGrey};
   display: block;
   width: 100%;
   height: 250px;
